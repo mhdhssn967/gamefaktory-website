@@ -69,7 +69,7 @@
     text-decoration: none;
   }
   .nav-logo img {
-    height: 45px;
+    height: 25px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s;
@@ -1380,7 +1380,7 @@
     <li><a href="#vision">Vision</a></li>
     <li><a href="#oqulix">Oqulix</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Let's Build!</a>
+  <a href="#contact" class="nav-cta open-lead-modal">Let's Build!</a>
 </nav>
 
 <!-- HERO -->
@@ -1415,7 +1415,7 @@
       <p class="hero-desc">Transforming ideas into interactive, playable experiences. We build branded games, custom experiences, and event activations that make people stop, play, and remember.</p>
       <div class="hero-buttons">
         <a href="#what-we-do" class="btn-primary">Explore Games 🎮</a>
-        <a href="#contact" class="btn-secondary">Get a Quote</a>
+        <a href="#contact" class="btn-secondary open-lead-modal">Get a Quote</a>
       </div>
     </div>
 
@@ -1787,7 +1787,7 @@
       <h2>Ready to Build Your Game?</h2>
       <p>Whether you're a brand, outlet, event organizer, or just have an idea — we're ready to make it playable. Let's create something unforgettable together.</p>
       <div class="cta-buttons">
-        <a href="mailto:hello@gamefaktory.com" class="btn-white">🎮 Start Building</a>
+        <a href="#contact" class="btn-white open-lead-modal">🎮 Start Building</a>
         <a href="#what-we-do" class="btn-outline-white">See Our Work</a>
       </div>
     </div>
@@ -1901,7 +1901,7 @@
         
         <div class="form-group">
           <label for="business_name">Business Name</label>
-          <input type="text" id="business_name" name="company" placeholder="What's your company called?" required>
+          <input type="text" id="business_name" name="business_name" placeholder="What's your company called?" required>
         </div>
 
         <div class="form-group">
@@ -1916,7 +1916,7 @@
 
         <div class="form-group">
           <label for="business_type">Type of Business</label>
-          <select id="business_type" name="outlet" required>
+          <select id="business_type" name="business_type" required>
             <option value="" disabled selected>Select your industry</option>
             <option value="Retail/Shop">Retail / Shop</option>
             <option value="Cafe/Restaurant">Cafe / Restaurant</option>
@@ -1928,8 +1928,8 @@
         </div>
 
         <div class="form-group">
-          <label for="message">Your Message</label>
-          <textarea id="message" name="remark" rows="3" placeholder="Tell us about the game you have in mind..." required></textarea>
+          <label for="message">Your Message (Optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about the game you have in mind..."></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Let's Play! 🚀</button>
@@ -1957,9 +1957,27 @@
       if (modal) modal.classList.add('active');
     }, 1500);
 
+    const openModal = () => {
+      if (modal) {
+        modal.classList.add('active');
+        // Reset form state if it was successful before
+        leadForm.style.display = 'flex';
+        modalSuccess.classList.remove('active');
+      }
+    };
+
     const closeModal = () => {
       if (modal) modal.classList.remove('active');
     };
+
+    // Listen for manual trigger buttons
+    const triggerButtons = document.querySelectorAll('.open-lead-modal');
+    triggerButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', (e) => {
@@ -1974,18 +1992,16 @@
         submitBtn.textContent = 'Sending...';
 
         const formData = new FormData(leadForm);
-        const params = new URLSearchParams();
-        for (const [key, value] of formData.entries()) {
-          params.append(key, value);
-        }
+        const data = Object.fromEntries(formData.entries());
 
         try {
           // Send to Google Sheet
-          await fetch('https://script.google.com/macros/s/AKfycbwbrTfdGsKKtFPgX6TZj45PnXVYO57nzVZAxb9585Bw7kNWq7eM7CoMhxa9vKBl21Py/exec', {
+          await fetch('https://script.google.com/macros/s/AKfycbyCc3Iuln-tGCNoqHzd7IquK4202jXUKTujHwc1cpW5lYZY4SALmbqkkEsU-3btrIvI/exec', {
             method: 'POST',
             mode: 'no-cors',
             cache: 'no-cache',
-            body: params
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
           });
 
           leadForm.style.display = 'none';
