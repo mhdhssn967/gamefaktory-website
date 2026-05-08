@@ -1901,7 +1901,7 @@
         
         <div class="form-group">
           <label for="business_name">Business Name</label>
-          <input type="text" id="business_name" name="business_name" placeholder="What's your company called?" required>
+          <input type="text" id="business_name" name="company" placeholder="What's your company called?" required>
         </div>
 
         <div class="form-group">
@@ -1916,7 +1916,7 @@
 
         <div class="form-group">
           <label for="business_type">Type of Business</label>
-          <select id="business_type" name="business_type" required>
+          <select id="business_type" name="outlet" required>
             <option value="" disabled selected>Select your industry</option>
             <option value="Retail/Shop">Retail / Shop</option>
             <option value="Cafe/Restaurant">Cafe / Restaurant</option>
@@ -1929,7 +1929,7 @@
 
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="3" placeholder="Tell us about the game you have in mind..." required></textarea>
+          <textarea id="message" name="remark" rows="3" placeholder="Tell us about the game you have in mind..." required></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Let's Play! 🚀</button>
@@ -1974,7 +1974,10 @@
         submitBtn.textContent = 'Sending...';
 
         const formData = new FormData(leadForm);
-        const data = Object.fromEntries(formData.entries());
+        const params = new URLSearchParams();
+        for (const [key, value] of formData.entries()) {
+          params.append(key, value);
+        }
 
         try {
           // Send to Google Sheet
@@ -1982,8 +1985,7 @@
             method: 'POST',
             mode: 'no-cors',
             cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: params
           });
 
           leadForm.style.display = 'none';
