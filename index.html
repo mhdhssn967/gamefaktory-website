@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GameFaktory – Powered by Oqulix</title>
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
   :root {
     --yellow: #FFD93D;
@@ -1359,10 +1361,158 @@
     display: block;
   }
   .modal-success h3 {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 1.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
     color: var(--green);
     margin-bottom: 10px;
+  }
+
+  /* Direct Business Contact Styles */
+  .business-contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 25px;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 14px 20px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  .contact-btn svg {
+    transition: transform 0.25s ease;
+  }
+  .contact-btn:hover {
+    transform: translateY(-3px);
+  }
+  .contact-btn:hover svg {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  .contact-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  }
+  .whatsapp-btn {
+    background: #25D366;
+    color: var(--white);
+    box-shadow: 0 4px 0 #128C7E, 0 10px 20px rgba(37, 211, 102, 0.2);
+  }
+  .whatsapp-btn:hover {
+    background: #20BA56;
+    box-shadow: 0 6px 0 #128C7E, 0 12px 25px rgba(37, 211, 102, 0.3);
+  }
+  .call-btn {
+    background: var(--cyan);
+    color: var(--darker);
+    box-shadow: 0 4px 0 #00A6CC, 0 10px 20px rgba(0, 210, 255, 0.2);
+  }
+  .call-btn:hover {
+    background: #00C2EC;
+    box-shadow: 0 6px 0 #00A6CC, 0 12px 25px rgba(0, 210, 255, 0.3);
+  }
+  .email-btn {
+    background: var(--orange);
+    color: var(--white);
+    box-shadow: 0 4px 0 #D35400, 0 10px 20px rgba(255, 107, 53, 0.2);
+  }
+  .email-btn:hover {
+    background: #FF5A1F;
+    box-shadow: 0 6px 0 #D35400, 0 12px 25px rgba(255, 107, 53, 0.3);
+  }
+
+  /* Lucide Vector Icon Styles */
+  .fb-icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke-width: 2.5;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .stat-icon svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    stroke-width: 2;
+    color: var(--darker);
+  }
+  .format-emoji {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -65%) !important;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .format-emoji svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+    color: var(--white);
+    opacity: 0.85;
+  }
+  .pf-icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    stroke-width: 2;
+  }
+  .vs-icon svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    stroke-width: 2;
+    color: var(--cyan);
+  }
+  .why-em svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    stroke-width: 2;
+  }
+  .wc1 .why-em { color: var(--yellow); }
+  .wc2 .why-em { color: var(--cyan); }
+  .wc3 .why-em { color: var(--green); }
+  .wc4 .why-em { color: var(--orange); }
+  .wc5 .why-em { color: var(--purple); }
+  
+  .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .success-icon svg {
+    width: 4rem;
+    height: 4rem;
+    stroke-width: 1.5;
+    color: var(--yellow);
+  }
+  
+  .section-label i {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2.5;
+    vertical-align: middle;
+    margin-right: 6px;
+    display: inline-block;
+  }
+  
+  .btn-primary i, .btn-white i {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke-width: 2.5;
+    vertical-align: middle;
+    margin-left: 6px;
+    display: inline-block;
   }
 </style>
 </head>
@@ -1414,20 +1564,20 @@
       <p class="hero-powered">A Branch of <span>Oqulix</span> Pvt Ltd</p>
       <p class="hero-desc">Transforming ideas into interactive, playable experiences. We build branded games, custom experiences, and event activations that make people stop, play, and remember.</p>
       <div class="hero-buttons">
-        <a href="#what-we-do" class="btn-primary">Explore Games 🎮</a>
+        <a href="#what-we-do" class="btn-primary">Explore Games <i data-lucide="gamepad-2"></i></a>
         <a href="#contact" class="btn-secondary open-lead-modal">Get a Quote</a>
       </div>
     </div>
 
     <div class="hero-visual">
       <div class="hero-float-badge fb1 fb-yellow">
-        <span class="fb-icon">🏆</span> Branded Games
+        <span class="fb-icon"><i data-lucide="trophy"></i></span> Branded Games
       </div>
       <div class="hero-float-badge fb2 fb-cyan">
-        <span class="fb-icon">⚡</span> Fast Delivery
+        <span class="fb-icon"><i data-lucide="zap"></i></span> Fast Delivery
       </div>
       <div class="hero-float-badge fb3 fb-green">
-        <span class="fb-icon">📱</span> Web & Mobile
+        <span class="fb-icon"><i data-lucide="smartphone"></i></span> Web & Mobile
       </div>
       <div class="hero-phone">
         <div class="phone-screen">
@@ -1443,7 +1593,7 @@
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stat-item">
-    <span class="stat-icon">🎯</span>
+    <span class="stat-icon"><i data-lucide="target"></i></span>
     <div>
       <div class="stat-num">100%</div>
       <div class="stat-label">Web-Based</div>
@@ -1451,7 +1601,7 @@
   </div>
   <div class="stat-sep"></div>
   <div class="stat-item">
-    <span class="stat-icon">⚡</span>
+    <span class="stat-icon"><i data-lucide="zap"></i></span>
     <div>
       <div class="stat-num">Fast</div>
       <div class="stat-label">Turnaround</div>
@@ -1459,7 +1609,7 @@
   </div>
   <div class="stat-sep"></div>
   <div class="stat-item">
-    <span class="stat-icon">🎨</span>
+    <span class="stat-icon"><i data-lucide="palette"></i></span>
     <div>
       <div class="stat-num">Deep</div>
       <div class="stat-label">Customization</div>
@@ -1467,7 +1617,7 @@
   </div>
   <div class="stat-sep"></div>
   <div class="stat-item">
-    <span class="stat-icon">📱</span>
+    <span class="stat-icon"><i data-lucide="smartphone"></i></span>
     <div>
       <div class="stat-num">All</div>
       <div class="stat-label">Devices</div>
@@ -1475,7 +1625,7 @@
   </div>
   <div class="stat-sep"></div>
   <div class="stat-item">
-    <span class="stat-icon">🚀</span>
+    <span class="stat-icon"><i data-lucide="rocket"></i></span>
     <div>
       <div class="stat-num">∞</div>
       <div class="stat-label">Scalable</div>
@@ -1542,38 +1692,38 @@
 <section class="formats" id="formats">
   <div class="section-inner">
     <div class="reveal">
-      <span class="section-label">🕹️ Game Formats</span>
+      <span class="section-label"><i data-lucide="gamepad-2"></i> Game Formats</span>
       <h2 class="section-title">Proven Formats, <span class="accent">Your Story</span></h2>
       <p class="section-subtitle">We adapt battle-tested game mechanics to carry your brand's identity and message.</p>
     </div>
     <div class="formats-scroll reveal">
       <div class="format-card">
         <div class="format-img fc1">
-          <span class="format-emoji">🏃</span>
+          <span class="format-emoji"><i data-lucide="footprints"></i></span>
           <div class="format-name">ENDLESS RUNNER</div>
         </div>
       </div>
       <div class="format-card">
         <div class="format-img fc2">
-          <span class="format-emoji">🕹️</span>
+          <span class="format-emoji"><i data-lucide="gamepad"></i></span>
           <div class="format-name">ARCADE CLASSIC</div>
         </div>
       </div>
       <div class="format-card">
         <div class="format-img fc3">
-          <span class="format-emoji">🧩</span>
+          <span class="format-emoji"><i data-lucide="puzzle"></i></span>
           <div class="format-name">PUZZLE GAME</div>
         </div>
       </div>
       <div class="format-card">
         <div class="format-img fc4">
-          <span class="format-emoji">🎯</span>
+          <span class="format-emoji"><i data-lucide="target"></i></span>
           <div class="format-name">CHALLENGE MODE</div>
         </div>
       </div>
       <div class="format-card">
         <div class="format-img fc5">
-          <span class="format-emoji">🏆</span>
+          <span class="format-emoji"><i data-lucide="trophy"></i></span>
           <div class="format-name">LEADERBOARD</div>
         </div>
       </div>
@@ -1585,7 +1735,7 @@
 <section class="how-we-work" id="how-we-work">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
-      <span class="section-label">⚙️ How We Work</span>
+      <span class="section-label"><i data-lucide="settings"></i> How We Work</span>
       <h2 class="section-title">From Idea to <span class="accent">Playable</span></h2>
       <p class="section-subtitle" style="margin-left:auto;margin-right:auto;text-align:center;">Our product-driven development process keeps things fast, reliable, and cost-effective — without sacrificing quality.</p>
     </div>
@@ -1620,27 +1770,27 @@
     <div class="platform-showcase">
       <div>
         <div class="reveal">
-          <span class="section-label">📱 Platforms</span>
+          <span class="section-label"><i data-lucide="monitor"></i> Platforms</span>
           <h2 class="section-title">Play Anywhere, <span class="accent">Instantly</span></h2>
           <p class="section-subtitle">No downloads. No friction. Just tap and play — on any screen, any device.</p>
         </div>
         <div class="platform-features">
           <div class="pf-item reveal reveal-delay-1">
-            <div class="pf-icon icon-yellow">🌐</div>
+            <div class="pf-icon icon-yellow"><i data-lucide="globe"></i></div>
             <div class="pf-text">
               <h4>Web-Based & Instant</h4>
               <p>Games run directly in the browser. Share a link, scan a QR code, or embed on your website — zero installation required.</p>
             </div>
           </div>
           <div class="pf-item reveal reveal-delay-2">
-            <div class="pf-icon icon-cyan">📱</div>
+            <div class="pf-icon icon-cyan"><i data-lucide="smartphone"></i></div>
             <div class="pf-text">
               <h4>Mobile-First Design</h4>
               <p>Fully optimized for smartphones and tablets — responsive layouts, touch controls, and smooth performance on every device.</p>
             </div>
           </div>
           <div class="pf-item reveal reveal-delay-3">
-            <div class="pf-icon icon-green">🖥️</div>
+            <div class="pf-icon icon-green"><i data-lucide="monitor"></i></div>
             <div class="pf-text">
               <h4>In-Store & Event Displays</h4>
               <p>Display your game on large screens at your outlet or event. Draws attention, invites interaction, builds crowd energy.</p>
@@ -1671,21 +1821,21 @@
     <div class="vision-grid">
       <div>
         <div class="reveal">
-          <span class="section-label">🔮 Our Vision</span>
+          <span class="section-label"><i data-lucide="compass"></i> Our Vision</span>
           <h2 class="section-title">A Game For <span class="accent">Every Brand</span></h2>
           <p class="section-subtitle">We're building a future where interactive gaming is accessible to every business, event, and individual — not just big studios.</p>
         </div>
         <div class="vision-statements">
           <div class="vision-stmt reveal reveal-delay-1">
-            <span class="vs-icon">🎮</span>
+            <span class="vs-icon"><i data-lucide="gamepad-2"></i></span>
             <p class="vs-text">Every brand can have its own game</p>
           </div>
           <div class="vision-stmt reveal reveal-delay-2">
-            <span class="vs-icon">🏪</span>
+            <span class="vs-icon"><i data-lucide="store"></i></span>
             <p class="vs-text">Every outlet can offer an interactive experience</p>
           </div>
           <div class="vision-stmt reveal reveal-delay-3">
-            <span class="vs-icon">💡</span>
+            <span class="vs-icon"><i data-lucide="lightbulb"></i></span>
             <p class="vs-text">Every idea can be transformed into something playable</p>
           </div>
         </div>
@@ -1709,48 +1859,48 @@
 <section class="why" id="why">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
-      <span class="section-label">✨ Why Us</span>
+      <span class="section-label"><i data-lucide="sparkles"></i> Why Us</span>
       <h2 class="section-title">Why Choose <span class="accent">GameFaktory</span></h2>
       <p class="section-subtitle" style="margin:0 auto 20px;">We combine creativity, speed, and technical excellence to deliver games that truly stand out.</p>
     </div>
     <div class="why-grid">
       <div class="why-card wc1 reveal reveal-delay-1">
-        <span class="why-em">⚡</span>
+        <span class="why-em"><i data-lucide="zap"></i></span>
         <div>
           <h4>Fast & Efficient Development</h4>
           <p>Reusable systems and a product-driven approach means faster turnaround without cutting corners on quality.</p>
         </div>
       </div>
       <div class="why-card wc2 reveal reveal-delay-2">
-        <span class="why-em">🎨</span>
+        <span class="why-em"><i data-lucide="palette"></i></span>
         <div>
           <h4>Deep Customization & Branding</h4>
           <p>Every pixel reflects your identity. Logos, colors, themes, products — fully embedded in the experience.</p>
         </div>
       </div>
       <div class="why-card wc3 reveal reveal-delay-3">
-        <span class="why-em">📱</span>
+        <span class="why-em"><i data-lucide="smartphone"></i></span>
         <div>
           <h4>Cross-Platform Compatibility</h4>
           <p>Works flawlessly on mobile, tablet, and desktop. Instant web access — no downloads needed.</p>
         </div>
       </div>
       <div class="why-card wc4 reveal reveal-delay-4">
-        <span class="why-em">🧠</span>
+        <span class="why-em"><i data-lucide="brain"></i></span>
         <div>
           <h4>Product-Driven & Scalable</h4>
           <p>Built for growth. Our architecture scales alongside your business without losing that custom feel.</p>
         </div>
       </div>
       <div class="why-card wc5 reveal reveal-delay-5">
-        <span class="why-em">🎯</span>
+        <span class="why-em"><i data-lucide="target"></i></span>
         <div>
           <h4>Built for Engagement & Impact</h4>
           <p>We design for retention and memorability — games people want to keep playing and sharing.</p>
         </div>
       </div>
       <div class="why-card wc1 reveal reveal-delay-1">
-        <span class="why-em">🏪</span>
+        <span class="why-em"><i data-lucide="store"></i></span>
         <div>
           <h4>Perfect for Physical Spaces</h4>
           <p>Ideal for stores, cafes, showrooms, and events where interactive displays drive footfall and dwell time.</p>
@@ -1787,7 +1937,7 @@
       <h2>Ready to Build Your Game?</h2>
       <p>Whether you're a brand, outlet, event organizer, or just have an idea — we're ready to make it playable. Let's create something unforgettable together.</p>
       <div class="cta-buttons">
-        <a href="#contact" class="btn-white open-lead-modal">🎮 Start Building</a>
+        <a href="#contact" class="btn-white open-lead-modal">Start Building <i data-lucide="gamepad-2"></i></a>
         <a href="#what-we-do" class="btn-outline-white">See Our Work</a>
       </div>
     </div>
@@ -1834,7 +1984,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2025 <span>GameFaktory</span>. All rights reserved.</div>
+      <div>© 2026 <span>GameFaktory</span>. All rights reserved.</div>
       <div>Powered by <img src="oq.png" alt="Oqulix" style="height: 40px; vertical-align: middle; margin-right: 4px;">
     </div>
   </div>
@@ -1932,14 +2082,43 @@
           <textarea id="message" name="message" rows="3" placeholder="Tell us about the game you have in mind..."></textarea>
         </div>
 
-        <button type="submit" class="btn-submit">Let's Play! 🚀</button>
+        <button type="submit" class="btn-submit">Let's Play! <i data-lucide="play" style="width: 1.1rem; height: 1.1rem; vertical-align: middle; margin-left: 6px; display: inline-block; stroke-width: 2.5;"></i></button>
       </form>
     </div>
 
     <div class="modal-success" id="modalSuccess">
-      <span class="success-icon">🎮</span>
+      <span class="success-icon"><i data-lucide="gamepad-2"></i></span>
       <h3>Level Up!</h3>
-      <p>Your message has been sent. Our team will contact you shortly to start your adventure.</p>
+      <p style="margin-bottom: 25px; font-family: 'Nunito', sans-serif; font-weight: 600; color: rgba(255, 255, 255, 0.9);">
+        Your message has been sent. Our team will contact you shortly to start your adventure.
+      </p>
+      
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 25px; margin-top: 20px;">
+        <h4 style="font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--yellow); font-size: 1.25rem; margin-bottom: 8px;">Want to Contact Us?</h4>
+        <p style="font-family: 'Nunito', sans-serif; font-weight: 600; color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.4;">
+          Do you want to build games for your business? Reach us directly:
+        </p>
+
+        <div class="business-contact-methods">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/917025707936" target="_blank" class="contact-btn whatsapp-btn">
+            <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-11.597c-.148-.246-.519-.394-1.063-.666-.543-.272-3.213-1.585-3.708-1.765-.494-.18-.853-.27-1.213.272-.36.543-1.393 1.765-1.71 2.126-.315.36-.63.407-1.173.136-.543-.272-2.294-.847-4.372-2.705-1.616-1.442-2.707-3.224-3.023-3.768-.315-.543-.033-.837.239-1.107.244-.243.543-.63.815-.945.272-.315.363-.543.543-.905.18-.36.09-.678-.045-.946-.135-.272-1.213-2.926-1.663-4.004-.439-1.054-.882-.912-1.213-.929-.313-.016-.673-.02-1.033-.02-.36 0-.946.135-1.44.678-.495.543-1.89 1.848-1.89 4.514s1.935 5.234 2.205 5.596c.272.36 3.806 5.807 9.22 8.148 1.288.556 2.293.888 3.078 1.137 1.294.412 2.474.354 3.407.215 1.04-.156 3.213-1.312 3.662-2.58.45-1.269.45-2.356.315-2.582z"/></svg>
+            Chat on WhatsApp
+          </a>
+
+          <!-- Call -->
+          <a href="tel:+917025707936" class="contact-btn call-btn">
+            <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008-.004-1.974.97-2.064 1.011-2.24 1.086-6.779-7.787-4.506-8.912.009-.004 1.972-.985 1.972-.985l-3.521-6.794s-1.951.974-2.035 1.015c-3.138 1.619-3.791 6.002-1.424 10.595 2.502 4.857 6.442 10.424 11.282 7.917.081-.042 2.036-.973 2.036-.973l1.781 3.436z"/></svg>
+            Call: 7025707936
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:contact@oqulix.com" class="contact-btn email-btn">
+            <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.036l-9.518 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.879l5.613-6.812zm9.208-1.259l4.616-3.741v9.451l-4.616-5.71z"/></svg>
+            Email contact@oqulix.com
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1947,10 +2126,14 @@
 <script>
   // Lead Modal Logic moved here to ensure HTML is ready
   document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Lucide Vector Icons
+    lucide.createIcons();
+
     const modal = document.getElementById('leadModal');
     const leadForm = document.getElementById('leadForm');
     const modalSuccess = document.getElementById('modalSuccess');
     const closeBtn = document.querySelector('.modal-close');
+    const leadFormContainer = document.getElementById('leadFormContainer');
 
     // Open modal with a small delay
     setTimeout(() => {
@@ -1961,8 +2144,16 @@
       if (modal) {
         modal.classList.add('active');
         // Reset form state if it was successful before
+        leadFormContainer.style.display = 'block';
         leadForm.style.display = 'flex';
+        leadForm.reset();
+        const submitBtn = leadForm.querySelector('.btn-submit');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Let\'s Play! <i data-lucide="play" style="width: 1.1rem; height: 1.1rem; vertical-align: middle; margin-left: 6px; display: inline-block; stroke-width: 2.5;"></i>';
+        lucide.createIcons();
+        
         modalSuccess.classList.remove('active');
+        modalSuccess.style.display = '';
       }
     };
 
@@ -2004,14 +2195,14 @@
             body: JSON.stringify(data)
           });
 
-          leadForm.style.display = 'none';
+          leadFormContainer.style.display = 'none';
           modalSuccess.classList.add('active');
-          setTimeout(closeModal, 3000);
         } catch (error) {
           console.error('Submission error:', error);
           alert('Something went wrong. Please try again.');
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Let\'s Play! 🚀';
+          submitBtn.innerHTML = 'Let\'s Play! <i data-lucide="play" style="width: 1.1rem; height: 1.1rem; vertical-align: middle; margin-left: 6px; display: inline-block; stroke-width: 2.5;"></i>';
+          lucide.createIcons();
         }
       });
     }
