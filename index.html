@@ -2238,7 +2238,8 @@
 
       function centerBrandedPlan() {
         if (window.innerWidth < 768 && cards[1]) {
-          cards[1].scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+          const scrollPos = cards[1].offsetLeft - (plansSlider.offsetWidth / 2) + (cards[1].offsetWidth / 2);
+          plansSlider.scrollTo({ left: scrollPos, behavior: 'auto' });
           currentActiveIdx = 1;
           updateArrows(1);
         }
@@ -2279,7 +2280,8 @@
       dots.forEach(dot => {
         dot.addEventListener('click', () => {
           const idx = parseInt(dot.getAttribute('data-index'));
-          cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          const scrollPos = cards[idx].offsetLeft - (plansSlider.offsetWidth / 2) + (cards[idx].offsetWidth / 2);
+          plansSlider.scrollTo({ left: scrollPos, behavior: 'smooth' });
         });
       });
 
@@ -2287,13 +2289,15 @@
       if (prevBtn) {
         prevBtn.addEventListener('click', () => {
           const prevIdx = Math.max(0, currentActiveIdx - 1);
-          cards[prevIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          const scrollPos = cards[prevIdx].offsetLeft - (plansSlider.offsetWidth / 2) + (cards[prevIdx].offsetWidth / 2);
+          plansSlider.scrollTo({ left: scrollPos, behavior: 'smooth' });
         });
       }
       if (nextBtn) {
         nextBtn.addEventListener('click', () => {
           const nextIdx = Math.min(cards.length - 1, currentActiveIdx + 1);
-          cards[nextIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          const scrollPos = cards[nextIdx].offsetLeft - (plansSlider.offsetWidth / 2) + (cards[nextIdx].offsetWidth / 2);
+          plansSlider.scrollTo({ left: scrollPos, behavior: 'smooth' });
         });
       }
 
@@ -2302,7 +2306,8 @@
         card.addEventListener('click', (e) => {
           if (window.innerWidth < 768) {
             if (e.target.closest('button') || e.target.closest('a')) return;
-            card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            const scrollPos = card.offsetLeft - (plansSlider.offsetWidth / 2) + (card.offsetWidth / 2);
+            plansSlider.scrollTo({ left: scrollPos, behavior: 'smooth' });
           }
         });
       });
