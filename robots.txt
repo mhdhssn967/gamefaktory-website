@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow:
 
-# Sitemap location — helps Google discover all pages
+# Sitemap location — helps search engines discover all pages
 Sitemap: https://gamefaktory.com/sitemap.xml
