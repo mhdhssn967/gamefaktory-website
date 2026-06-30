@@ -882,6 +882,97 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════ OUR GAMES VIDEOS ════════════════════════ -->
+  <div id="our-games-videos" class="max-w-6xl mx-auto px-6 mb-12 mt-6">
+    <div class="text-center text-purple text-xs font-extrabold tracking-[2px] uppercase mb-3">Experience The Action</div>
+    <h2 class="text-center font-sans text-3xl md:text-4xl font-extrabold text-slate-900 mb-10 max-w-2xl mx-auto leading-tight">
+      Our Featured Games
+    </h2>
+    
+    <div class="relative group">
+      <!-- Left Arrow Button -->
+      <button id="games-prev-btn" class="absolute left-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 rounded-full bg-white/95 shadow-md flex items-center justify-center text-slate-800 transition-all duration-300 md:hidden focus:outline-none opacity-0 pointer-events-none" aria-label="Previous Game">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Right Arrow Button -->
+      <button id="games-next-btn" class="absolute right-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 rounded-full bg-white/95 shadow-md flex items-center justify-center text-slate-800 transition-all duration-300 md:hidden focus:outline-none" aria-label="Next Game">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div id="games-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-none pb-8 pt-4 px-4 -mx-4 md:px-0 md:mx-0 md:justify-center scroll-smooth">
+        
+        <!-- Game 1 -->
+        <div class="shrink-0 w-[85vw] sm:w-[320px] md:w-[340px] snap-center flex flex-col items-center group">
+          <div class="skeuo-card-light rounded-3xl p-3 shadow-lg w-full transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-purple/10">
+            <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-slate-900 w-full pointer-events-auto">
+              <iframe class="absolute inset-0 w-full h-full pointer-events-none" src="https://www.youtube.com/embed/6J013-0J0fM?autoplay=1&loop=1&playlist=6J013-0J0fM&mute=1&controls=0&modestbranding=1" title="Mouzy Zuzy Run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="mt-5 text-center flex flex-col items-center gap-2">
+            <img src="mouzylogo.png" alt="Mouzy Logo" class="h-16 w-auto rounded-2xl object-contain drop-shadow-sm" />
+          </div>
+        </div>
+
+        <!-- Game 2 -->
+        <div class="shrink-0 w-[85vw] sm:w-[320px] md:w-[340px] snap-center flex flex-col items-center group">
+          <div class="skeuo-card-light rounded-3xl p-3 shadow-lg w-full transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-cyan/10">
+            <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-slate-900 w-full pointer-events-auto">
+              <iframe class="absolute inset-0 w-full h-full pointer-events-none" src="https://www.youtube.com/embed/HZm23ageAXk?autoplay=1&loop=1&playlist=HZm23ageAXk&mute=1&controls=0&modestbranding=1" title="MyG Play And Win" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="mt-5 text-center flex flex-col items-center gap-2">
+            <img src="myglogo.png" alt="myG Logo" class="h-16 w-auto rounded-2xl object-contain drop-shadow-sm" />
+          </div>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="shrink-0 w-[85vw] sm:w-[320px] md:w-[340px] snap-center flex flex-col items-center group">
+          <div class="skeuo-card-light rounded-3xl p-3 shadow-lg w-full transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-gold/10">
+            <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-slate-900 w-full pointer-events-auto">
+              <iframe class="absolute inset-0 w-full h-full pointer-events-none" src="https://www.youtube.com/embed/NQleIXob7AE?autoplay=1&loop=1&playlist=NQleIXob7AE&mute=1&controls=0&modestbranding=1" title="Fishbae" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="mt-5 text-center flex flex-col items-center gap-2">
+            <img src="fishbaelogo.png" alt="Fishbae Logo" class="h-16 w-auto rounded-2xl object-contain drop-shadow-sm" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('games-carousel');
+      const prevBtn = document.getElementById('games-prev-btn');
+      const nextBtn = document.getElementById('games-next-btn');
+
+      if(prevBtn && nextBtn && carousel) {
+        prevBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: -window.innerWidth * 0.8, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: window.innerWidth * 0.8, behavior: 'smooth' });
+        });
+        
+        carousel.addEventListener('scroll', () => {
+          if(carousel.scrollLeft <= 10) {
+            prevBtn.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+          }
+          
+          if(carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10) {
+            nextBtn.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+          }
+        });
+      }
+    });
+  </script>
+
   <!-- ═══════════════════════════════ OQULIX INFO SECTION (Segment Showcase) ════════════════════════ -->
   <div id="oqulix-section" class="max-w-6xl mx-auto px-6 mt-16 mb-24">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
