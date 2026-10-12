@@ -1,0 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>GameFaktory | Play Branded Games, Earn Rewards & Top Leaderboards</title>
+  <meta name="description" content="Discover and play branded casual games from your favorite brands. Compete on leaderboards, earn points, and unlock real rewards with GameFaktory.">
+  <meta name="keywords" content="GameFaktory, play to earn, branded games, Mouzy Zuzy Run, B Laban, RailRolls, mobile gaming, leaderboards, brand rewards">
+  <meta name="author" content="GameFaktory by Oqulix">
+  <link rel="icon" type="image/webp" href="fav.webp">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GameFaktory | Play Games. Discover Brands. Win Rewards.">
+  <meta property="og:description" content="The premier consumer gaming platform for interactive branded experiences. Play now in your browser!">
+  <meta property="og:image" content="zuzy.webp">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gf: {
+              purple: '#7C3AED',
+              purpleLight: '#9F67FF',
+              purpleDark: '#4C1D95',
+              cyan: '#22D3EE',
+              cyanDark: '#0891B2',
+              gold: '#F59E0B',
+              goldLight: '#FBBF24',
+              green: '#10B981',
+              darkBg: '#090816',
+              cardBg: '#131127',
+              cardHover: '#1A1736',
+              surface: '#1E1A3D',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(124, 58, 237, 0.4)',
+            }
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-purple': '0 0 25px rgba(124, 58, 237, 0.35)',
+            'glow-cyan': '0 0 25px rgba(34, 211, 238, 0.35)',
+            'glow-gold': '0 0 25px rgba(245, 158, 11, 0.35)',
+            'card-elevated': '0 12px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #090816; }
+    ::-webkit-scrollbar-thumb { background: #26214A; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+
+    /* Glassmorphic utilities */
+    .glass-panel {
+      background: rgba(19, 17, 39, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(27, 24, 56, 0.7) 0%, rgba(19, 17, 39, 0.9) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(124, 58, 237, 0.45);
+      box-shadow: 0 16px 35px -8px rgba(124, 58, 237, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* Ambient background mesh */
+    .ambient-mesh {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.18) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.14) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(159, 103, 255, 0.06) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+    }
+
+    /* Active Nav link */
+    .nav-link.active {
+      color: #FFFFFF;
+      background: rgba(124, 58, 237, 0.2);
+      border-color: rgba(124, 58, 237, 0.5);
+    }
+
+    /* Shimmer effect */
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    .animate-shimmer {
+      animation: shimmer 2.5s infinite;
+    }
+
+    /* Hide scrollbar for card rails */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-gf-darkBg text-white font-sans antialiased min-h-screen selection:bg-gf-purple selection:text-white pb-20 md:pb-8 ambient-mesh">
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 0. TOP CORPORATE BRIDGE BANNER                                        -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <div id="corporateBanner" class="bg-gradient-to-r from-gf-purpleDark/90 via-[#19143D]/95 to-gf-purpleDark/90 border-b border-gf-purple/30 text-xs py-2 px-4 text-center relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex-1 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-gf-cyan animate-pulse"></span>
+        <span class="text-white/80 font-medium hidden sm:inline">Are you a consumer brand looking to gamify your audience?</span>
+        <span class="text-white/80 font-medium sm:hidden">Brand seeking gamification?</span>
+        <a href="index.html" class="text-gf-cyan hover:text-white font-bold inline-flex items-center gap-1 transition-colors underline decoration-gf-cyan/50 hover:decoration-white">
+          Launch on GameFaktory →
+        </a>
+      </div>
+      <button onclick="document.getElementById('corporateBanner').style.display='none'" class="text-white/50 hover:text-white text-base leading-none px-2" title="Dismiss">&times;</button>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 1. GLOBAL DESKTOP & MOBILE HEADER                                     -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <img src="gflogohor.webp" alt="GameFaktory" class="h-8 md:h-9 w-auto object-contain" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='flex';"/>
+        <div id="textLogo" class="hidden items-center gap-1 font-extrabold text-xl tracking-tight">
+          <span class="text-white">game</span><span class="text-gf-purpleLight">faktory</span>
+        </div>
+        <span class="bg-gradient-to-r from-gf-purple to-gf-cyan text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full text-white shadow-glow-purple">
+          PLAY
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 border border-transparent transition-all">
+          <i class="fa-solid fa-house mr-1.5 text-xs text-gf-purpleLight"></i> Home
+        </a>
+        <a href="#games" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 border border-transparent transition-all">
+          <i class="fa-solid fa-gamepad mr-1.5 text-xs text-gf-cyan"></i> Games
+        </a>
+        <a href="#brands" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 border border-transparent transition-all">
+          <i class="fa-solid fa-award mr-1.5 text-xs text-gf-gold"></i> Brands
+        </a>
+        <a href="#rewards" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 border border-transparent transition-all">
+          <i class="fa-solid fa-gift mr-1.5 text-xs text-rose-400"></i> Rewards
+        </a>
+        <a href="#leaderboard" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 border border-transparent transition-all">
+          <i class="fa-solid fa-trophy mr-1.5 text-xs text-amber-300"></i> Leaderboard
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Search Trigger -->
+        <button onclick="openSearchPalette()" class="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gf-purple/40 text-white/70 hover:text-white px-3.5 py-1.5 rounded-full text-xs transition-all">
+          <i class="fa-solid fa-magnifying-glass text-gf-purpleLight"></i>
+          <span class="hidden sm:inline">Search games & brands...</span>
+          <kbd class="hidden sm:inline bg-black/40 text-[10px] px-1.5 py-0.5 rounded border border-white/10 text-white/50 font-mono">⌘K</kbd>
+        </button>
+
+        <!-- Player Profile Badge (Clickable) -->
+        <a href="#profile" id="userHeaderBadge" class="flex items-center gap-2.5 bg-gf-surface/80 hover:bg-gf-surface border border-white/10 hover:border-gf-cyan/40 px-3 py-1.5 rounded-full transition-all group">
+          <div class="relative">
+            <div id="userAvatarIcon" class="w-7 h-7 rounded-full bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-xs font-bold text-white shadow-glow-purple">
+              H
+            </div>
+            <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-gf-green border-2 border-gf-darkBg"></span>
+          </div>
+          <div class="hidden sm:flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span id="headerUserName" class="text-xs font-bold text-white leading-tight">Hussain</span>
+              <span id="headerUserLevel" class="text-[9px] font-black bg-gf-purple/40 text-gf-purpleLight px-1.5 py-0.2 rounded">LVL 12</span>
+            </div>
+            <span id="headerUserPoints" class="text-[10px] text-gf-gold font-semibold leading-none mt-0.5">⭐ 14,850 pts</span>
+          </div>
+        </a>
+
+        <!-- Quick Play Button -->
+        <a href="#play/zuzy-run" class="hidden md:flex items-center gap-1.5 bg-gradient-to-r from-gf-purple to-gf-purpleLight hover:from-gf-purpleLight hover:to-gf-cyan text-white text-xs font-bold px-4 py-2 rounded-full shadow-glow-purple transition-all duration-300 transform hover:-translate-y-0.5">
+          <i class="fa-solid fa-play text-[10px]"></i>
+          <span>Play Now</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 2. MAIN ROUTER VIEW CONTAINER                                         -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <main id="appContent" class="min-h-[calc(100vh-140px)]">
+    <!-- Views will be dynamically injected here by Router -->
+  </main>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 3. MOBILE FIXED BOTTOM NAVIGATION DOCK                                -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 bg-[#090816]/95 backdrop-blur-xl px-2 py-2">
+    <div class="flex items-center justify-around">
+      <a href="#home" class="mobile-nav-item flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors p-1" data-route="home">
+        <i class="fa-solid fa-house text-base"></i>
+        <span class="text-[10px] font-medium">Home</span>
+      </a>
+      <a href="#games" class="mobile-nav-item flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors p-1" data-route="games">
+        <i class="fa-solid fa-gamepad text-base"></i>
+        <span class="text-[10px] font-medium">Games</span>
+      </a>
+      <a href="#rewards" class="mobile-nav-item flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors p-1" data-route="rewards">
+        <i class="fa-solid fa-gift text-base"></i>
+        <span class="text-[10px] font-medium">Rewards</span>
+      </a>
+      <a href="#leaderboard" class="mobile-nav-item flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors p-1" data-route="leaderboard">
+        <i class="fa-solid fa-trophy text-base"></i>
+        <span class="text-[10px] font-medium">Rankings</span>
+      </a>
+      <a href="#profile" class="mobile-nav-item flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors p-1" data-route="profile">
+        <i class="fa-solid fa-user text-base"></i>
+        <span class="text-[10px] font-medium">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 4. SEARCH COMMAND PALETTE MODAL                                       -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <div id="searchPaletteModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 px-4 transition-opacity">
+    <div class="bg-gf-cardBg border border-white/15 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl animate-fadeUp">
+      <!-- Input Header -->
+      <div class="flex items-center px-4 py-3.5 border-b border-white/10 gap-3">
+        <i class="fa-solid fa-magnifying-glass text-gf-purpleLight text-base"></i>
+        <input id="searchPaletteInput" type="text" placeholder="Search games, brands, campaigns or categories..." 
+               class="flex-1 bg-transparent border-none outline-none text-white text-sm sm:text-base placeholder-white/40"/>
+        <button onclick="closeSearchPalette()" class="text-white/40 hover:text-white text-xs px-2 py-1 rounded bg-white/5 border border-white/10">ESC</button>
+      </div>
+
+      <!-- Quick Category Filter Tags -->
+      <div class="flex items-center gap-1.5 px-4 py-2.5 bg-black/30 border-b border-white/5 overflow-x-auto no-scrollbar text-xs">
+        <span class="text-white/40 font-medium pr-1">Filter:</span>
+        <button onclick="filterSearchPalette('all')" class="search-tag px-2.5 py-1 rounded-full bg-white/10 hover:bg-gf-purple text-white/90">All</button>
+        <button onclick="filterSearchPalette('games')" class="search-tag px-2.5 py-1 rounded-full bg-white/5 hover:bg-gf-purple text-white/70">🎮 Games</button>
+        <button onclick="filterSearchPalette('brands')" class="search-tag px-2.5 py-1 rounded-full bg-white/5 hover:bg-gf-purple text-white/70">🏷️ Brands</button>
+        <button onclick="filterSearchPalette('campaigns')" class="search-tag px-2.5 py-1 rounded-full bg-white/5 hover:bg-gf-purple text-white/70">🔥 Campaigns</button>
+        <button onclick="filterSearchPalette('rewards')" class="search-tag px-2.5 py-1 rounded-full bg-white/5 hover:bg-gf-purple text-white/70">🎁 Rewards</button>
+      </div>
+
+      <!-- Results List -->
+      <div id="searchResultsContainer" class="max-h-96 overflow-y-auto p-2 space-y-1">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="px-4 py-2.5 bg-black/40 border-t border-white/5 flex items-center justify-between text-[11px] text-white/40">
+        <span>Tip: Press <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white/60">↑</kbd> <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white/60">↓</kbd> to navigate, <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white/60">Enter</kbd> to select</span>
+        <span>GameFaktory Discovery Engine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 5. REWARD REDEMPTION MODAL                                            -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <div id="rewardModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-gf-cardBg border border-white/15 rounded-3xl w-full max-w-md p-6 relative overflow-hidden shadow-glow-purple text-center animate-fadeUp">
+      <div class="absolute -top-16 -right-16 w-36 h-36 bg-gf-purple/25 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-16 -left-16 w-36 h-36 bg-gf-cyan/20 rounded-full blur-2xl"></div>
+      
+      <button onclick="closeRewardModal()" class="absolute top-4 right-4 text-white/40 hover:text-white text-lg">&times;</button>
+
+      <div id="rewardModalContent">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 6. USER PROFILE / AUTH MODAL                                          -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-gf-cardBg border border-white/15 rounded-3xl w-full max-w-md p-6 relative shadow-2xl text-center">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-white/40 hover:text-white text-lg">&times;</button>
+      
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-2xl shadow-glow-purple mb-3">
+        <i class="fa-solid fa-gamepad text-white"></i>
+      </div>
+      <h3 class="text-xl font-extrabold text-white">Player Identity</h3>
+      <p class="text-xs text-white/60 mb-5">Customize your gamertag or sign in to sync rewards across devices.</p>
+
+      <form onsubmit="handleSaveProfile(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-semibold text-white/70 mb-1">Gamer Tag / Name</label>
+          <input id="modalInputGamerTag" type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm focus:border-gf-purple outline-none" placeholder="e.g. ShadowRacer"/>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-white/70 mb-1">Mobile Number (For SMS Reward Vouchers)</label>
+          <input id="modalInputPhone" type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm focus:border-gf-purple outline-none" placeholder="+91 98765 43210"/>
+        </div>
+        
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-gradient-to-r from-gf-purple to-gf-purpleLight text-white font-bold py-2.5 rounded-xl shadow-glow-purple hover:opacity-95 transition-all text-sm">
+            Save Player Profile
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-4 pt-4 border-t border-white/10 text-[11px] text-white/50 text-center">
+        No password required. Instant play and voucher generation enabled.
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Pill -->
+  <div id="toastNotification" class="fixed bottom-20 md:bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-[#1B1642] border border-gf-purple/50 px-4 py-3 rounded-2xl shadow-2xl text-white text-xs font-medium">
+    <div id="toastIcon" class="w-6 h-6 rounded-full bg-gf-purple/30 text-gf-purpleLight flex items-center justify-center">
+      <i class="fa-solid fa-bell text-[10px]"></i>
+    </div>
+    <span id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 7. GLOBAL FOOTER                                                      -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <footer class="mt-24 border-t border-white/10 bg-[#070611] text-white/70 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+        
+        <!-- Col 1: Brand -->
+        <div class="col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            <img src="gflogohor.webp" alt="GameFaktory" class="h-8 w-auto object-contain" onerror="this.style.display='none';"/>
+            <span class="font-extrabold text-white text-lg tracking-tight">game<span class="text-gf-purpleLight">faktory</span></span>
+          </div>
+          <p class="text-white/50 text-xs leading-relaxed max-w-sm">
+            The consumer gaming platform connecting players and top consumer brands through interactive, playable games, live competitions, and real rewards.
+          </p>
+          <div class="pt-2 flex items-center gap-3 text-white/50 text-base">
+            <a href="https://instagram.com" target="_blank" class="hover:text-gf-purple transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="hover:text-gf-purple transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://x.com" target="_blank" class="hover:text-gf-purple transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" class="hover:text-gf-purple transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Discover -->
+        <div class="space-y-2.5">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Discover</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#games" class="hover:text-white transition-colors">All Games</a></li>
+            <li><a href="#games?category=runner" class="hover:text-white transition-colors">Runner Games</a></li>
+            <li><a href="#games?category=arcade" class="hover:text-white transition-colors">Arcade Games</a></li>
+            <li><a href="#brands" class="hover:text-white transition-colors">Brand Hubs</a></li>
+            <li><a href="#rewards" class="hover:text-white transition-colors">Rewards Shop</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Competitions -->
+        <div class="space-y-2.5">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Compete</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#leaderboard" class="hover:text-white transition-colors">Global Leaderboard</a></li>
+            <li><a href="#game/zuzy-run" class="hover:text-white transition-colors">Zuzy Run High Scores</a></li>
+            <li><a href="#game/onam-challenge" class="hover:text-white transition-colors">Onam Championship</a></li>
+            <li><a href="#profile" class="hover:text-white transition-colors">Player Badges & XP</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: For Brands & Corporate -->
+        <div class="space-y-2.5">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">For Brands</h4>
+          <ul class="space-y-1.5">
+            <li><a href="index.html" class="text-gf-cyan hover:underline font-semibold flex items-center gap-1">Launch On Platform <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></li>
+            <li><a href="mouzy.html" class="hover:text-white transition-colors">Mouzy Case Study</a></li>
+            <li><a href="index.html#plans" class="hover:text-white transition-colors">Commercial Plans</a></li>
+            <li><a href="index.html#industries" class="hover:text-white transition-colors">Retail & QSR Solutions</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/40">
+        <p>© 2026 GameFaktory. Developed by Oqulix Private Limited. All brand trademarks belong to respective partners.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-white">Fair Play Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:text-white">Terms of Play</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- 8. CENTRALIZED APPLICATION SCRIPT & ENGINE                            -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <script>
+    /* --- DATA STORE --- */
+    const GF_DATA = {
+      games: [
+        {
+          id: 'zuzy-run',
+          slug: 'zuzy-run',
+          title: 'Zuzy Run',
+          brand: 'Mouzy',
+          brandSlug: 'mouzy',
+          brandLogo: 'mouzylogo.png',
+          coverImage: 'zuzy.webp',
+          genre: 'Runner',
+          rating: 4.9,
+          players: '12.4K',
+          totalPlays: '150K+',
+          releaseDate: 'Aug 2026',
+          status: 'Trending',
+          tagline: 'Race through the world of Mouzy, beat high scores and earn real dairy treats!',
+          description: 'Dash through vibrant streets and dairy groves! Jump over milk crates, dodge barriers, collect golden Mouzy bottles, and claim delicious discount vouchers redeemable at 50+ Mouzy outlets.',
+          howToPlay: [
+            'Press SPACE or UP ARROW to jump over crates.',
+            'Press DOWN ARROW to slide beneath overhead barriers.',
+            'Collect golden Mouzy bottles (+100 pts) and power stars (2X combo).',
+            'Score above 10,000 to instantly unlock real brand discount coupons.'
+          ],
+          featured: true,
+          trending: true,
+          category: 'runner',
+          badgeText: 'HOT TRENDING',
+          rewardsCount: 3,
+        },
+        {
+          id: 'blaban-challenge',
+          slug: 'blaban-challenge',
+          title: 'B Laban Challenge',
+          brand: 'B Laban',
+          brandSlug: 'b-laban',
+          brandLogo: 'blaban_logo.jpg',
+          coverImage: 'blaban_game.jpg',
+          genre: 'Arcade',
+          rating: 4.8,
+          players: '8.9K',
+          totalPlays: '95K+',
+          releaseDate: 'Sep 2026',
+          status: 'Hot',
+          tagline: 'Catch delicious Egyptian desserts, build massive combos and unlock free ice cream!',
+          description: 'Step into the dessert arena! Catch falling bowls of creamy rice pudding, fresh mango chunks, pistachios, and Lotus biscoff biscuits. Avoid spoiled ingredients and rack up sweet score multipliers.',
+          howToPlay: [
+            'Use LEFT & RIGHT arrows (or swipe) to steer the collection tray.',
+            'Catch dessert ingredients: Mango (+100), Pistachio (+150), Lotus Biscuits (+250).',
+            'Dodge cracked bowls to preserve your multiplier combo streak.',
+            'Score 8,000+ points to claim free desserts at B Laban outlets.'
+          ],
+          featured: true,
+          trending: true,
+          category: 'arcade',
+          badgeText: 'SWEET REWARDS',
+          rewardsCount: 2,
+        },
+        {
+          id: 'railrolls-rush',
+          slug: 'railrolls-rush',
+          title: 'RailRolls Rush',
+          brand: 'RailRolls',
+          brandSlug: 'railrolls',
+          brandLogo: 'railrolls_logo.jpg',
+          coverImage: 'railrolls_game.jpg',
+          genre: 'Speed Runner',
+          rating: 4.9,
+          players: '10.2K',
+          totalPlays: '110K+',
+          releaseDate: 'Aug 2026',
+          status: 'Popular',
+          tagline: 'High-speed rail dash dodging signals, grabbing crispy rolls and unlocking dining discounts!',
+          description: 'A neon cyberpunk subway runner! Shift across railway tracks, vault over train cars, dodge track switches, and collect mouthwatering crispy RailRolls wraps for delicious dining discounts.',
+          howToPlay: [
+            'Use LEFT/RIGHT arrows to switch subway tracks in real-time.',
+            'UP ARROW vaults over signal boxes; DOWN ARROW slides under railway gates.',
+            'Collect warm crispy rolls (+200 pts) and neon battery cells (+500 pts).',
+            'Surpass 5,000 points to redeem a 10% discount on your next meal.'
+          ],
+          featured: true,
+          trending: true,
+          category: 'runner',
+          badgeText: 'HIGH SPEED',
+          rewardsCount: 2,
+        },
+        {
+          id: 'onam-challenge',
+          slug: 'onam-challenge',
+          title: 'Onam Grand Challenge',
+          brand: 'Mouzy × GameFaktory',
+          brandSlug: 'mouzy',
+          brandLogo: 'mouzylogo.png',
+          coverImage: 'gf_seasonal_game.jpg',
+          genre: 'Seasonal Tournament',
+          rating: 5.0,
+          players: '18.5K',
+          totalPlays: '220K+',
+          releaseDate: 'Sep 2026',
+          status: 'Featured Event',
+          tagline: 'Compete in Kerala\'s largest branded gaming tournament. Beat scores, win gold vouchers!',
+          description: 'Celebrate Onam in full gaming glory! Navigate glowing pookkalam arenas, rhythmic snake boat speeds, and festive carnival obstacles to rank on district leaderboards for mega brand rewards.',
+          howToPlay: [
+            'Match rhythmic rhythm beats and jump festival fireworks.',
+            'Collect festive golden tokens and special Mouzy Payasam bottles.',
+            'Maintain a streak without stumbling to multiply your leaderboard points.',
+            'Top 100 players win ₹1,000+ dining vouchers and exclusive gold badges.'
+          ],
+          featured: true,
+          trending: false,
+          category: 'competitive',
+          badgeText: 'SPECIAL EVENT',
+          rewardsCount: 4,
+        },
+        {
+          id: 'gf-dash',
+          slug: 'gf-dash',
+          title: 'GameFaktory Dash',
+          brand: 'GameFaktory Original',
+          brandSlug: 'gamefaktory',
+          brandLogo: 'fav.webp',
+          coverImage: 'gf_dash_game.jpg',
+          genre: 'Skill Runner',
+          rating: 4.7,
+          players: '6.5K',
+          totalPlays: '78K+',
+          releaseDate: 'Sep 2026',
+          status: 'New',
+          tagline: 'The official platform speed run. Test your reflexes and earn GameFaktory status XP!',
+          description: 'Sprint through the cyber grid! High-frequency obstacles, electric portals, and floating gems designed to push your reaction speed to the absolute limit while earning platform-wide XP.',
+          howToPlay: [
+            'Dodge high-voltage cyber lasers and timing hurdles.',
+            'Grab purple GameFaktory power cores to trigger invulnerability.',
+            'Climb global platform ranks and unlock exclusive player avatars.'
+          ],
+          featured: false,
+          trending: false,
+          category: 'skill',
+          badgeText: 'JUST ADDED',
+          rewardsCount: 2,
+        }
+      ],
+
+      brands: [
+        {
+          id: 'mouzy',
+          slug: 'mouzy',
+          name: 'Mouzy',
+          tagline: 'Milk. Play. Rewards.',
+          logo: 'mouzylogo.png',
+          coverImage: 'zuzy.webp',
+          category: 'Dairy & Beverages',
+          outlets: '50+ Outlets Across Kerala & UAE',
+          activeGames: 2,
+          activeCampaigns: 2,
+          totalRewards: 3,
+          description: 'Mouzy is the innovative flavored milk and dairy brand transforming retail visits into interactive games. Through Zuzy Run and festive tournaments, Mouzy rewards customers daily.',
+          campaigns: ['Onam Grand Challenge', 'Weekend Rush Hour']
+        },
+        {
+          id: 'b-laban',
+          slug: 'b-laban',
+          name: 'B Laban',
+          tagline: 'Sweet Delights. Epic Rewards.',
+          logo: 'blaban_logo.jpg',
+          coverImage: 'blaban_game.jpg',
+          category: 'Desserts & Dining',
+          outlets: '35+ Outlets in Middle East & India',
+          activeGames: 1,
+          activeCampaigns: 1,
+          totalRewards: 2,
+          description: 'Renowned for legendary Egyptian desserts, Kunafa cups, and fresh cream ice creams, B Laban offers players mouthwatering treats for beating in-game challenges.',
+          campaigns: ['Sweet Tooth Derby']
+        },
+        {
+          id: 'railrolls',
+          slug: 'railrolls',
+          name: 'RailRolls',
+          tagline: 'Crispy Wraps. Rapid Transit.',
+          logo: 'railrolls_logo.jpg',
+          coverImage: 'railrolls_game.jpg',
+          category: 'Quick Service Restaurants',
+          outlets: '20+ Express Transit Counters',
+          activeGames: 1,
+          activeCampaigns: 1,
+          totalRewards: 2,
+          description: 'Crafting signature gourmet wraps for commuters and food lovers. Play RailRolls Rush to grab real discounts on your daily commute snacks.',
+          campaigns: ['Speed Eater Streak']
+        },
+        {
+          id: 'gamefaktory',
+          slug: 'gamefaktory',
+          name: 'GameFaktory',
+          tagline: 'Turn Customers Into Players.',
+          logo: 'fav.webp',
+          coverImage: 'gf_dash_game.jpg',
+          category: 'Platform Originals',
+          outlets: 'Global Web & Mobile',
+          activeGames: 2,
+          activeCampaigns: 1,
+          totalRewards: 2,
+          description: 'The central gamification platform powering interactive branded games, instant reward issuance, and tournament leaderboards.',
+          campaigns: ['Platform Season 1']
+        }
+      ],
+
+      rewards: [
+        {
+          id: 'rew-mouzy-100',
+          brand: 'Mouzy',
+          brandSlug: 'mouzy',
+          brandLogo: 'mouzylogo.png',
+          title: '₹100 OFF Any Mouzy Shake',
+          pointsCost: 10000,
+          value: '₹100 OFF',
+          gameSlug: 'zuzy-run',
+          validity: 'Valid for 14 days after claiming',
+          badge: 'BESTSELLER',
+          codePrefix: 'MOUZY-100'
+        },
+        {
+          id: 'rew-blaban-drink',
+          brand: 'B Laban',
+          brandSlug: 'b-laban',
+          brandLogo: 'blaban_logo.jpg',
+          title: 'FREE Ice Cream Cup',
+          pointsCost: 8000,
+          value: 'FREE TREAT',
+          gameSlug: 'blaban-challenge',
+          validity: 'Valid at any B Laban outlet',
+          badge: 'SWEET REWARD',
+          codePrefix: 'BLABAN-CUP'
+        },
+        {
+          id: 'rew-railrolls-10',
+          brand: 'RailRolls',
+          brandSlug: 'railrolls',
+          brandLogo: 'railrolls_logo.jpg',
+          title: '10% OFF Gourmet Roll Combo',
+          pointsCost: 5000,
+          value: '10% OFF',
+          gameSlug: 'railrolls-rush',
+          validity: 'Valid on all meal combos',
+          badge: 'QUICK CLAIM',
+          codePrefix: 'RAIL-10PCT'
+        },
+        {
+          id: 'rew-mouzy-bogo',
+          brand: 'Mouzy',
+          brandSlug: 'mouzy',
+          brandLogo: 'mouzylogo.png',
+          title: 'Buy 1 Get 1 Free Flavored Milk',
+          pointsCost: 6000,
+          value: 'BUY 1 GET 1',
+          gameSlug: 'zuzy-run',
+          validity: 'Valid on weekend purchases',
+          badge: 'POPULAR',
+          codePrefix: 'MOUZY-BOGO'
+        },
+        {
+          id: 'rew-gf-vip',
+          brand: 'GameFaktory',
+          brandSlug: 'gamefaktory',
+          brandLogo: 'fav.webp',
+          title: 'VIP Gold Platform Badge & 2X XP',
+          pointsCost: 15000,
+          value: 'VIP PASS',
+          gameSlug: 'gf-dash',
+          validity: 'Permanent player status',
+          badge: 'EXCLUSIVE',
+          codePrefix: 'GF-VIP-PASS'
+        }
+      ],
+
+      leaderboard: [
+        { rank: 1, name: 'PlayerOne', score: 24820, level: 16, avatar: '👑', tag: 'Grand Champion', game: 'zuzy-run' },
+        { rank: 2, name: 'Hussain', score: 21430, level: 12, avatar: '⚡', tag: 'Current Player', isCurrentUser: true, game: 'zuzy-run' },
+        { rank: 3, name: 'GamerX', score: 19920, level: 14, avatar: '🔥', tag: 'Speed Demon', game: 'zuzy-run' },
+        { rank: 4, name: 'CyberSam', score: 18100, level: 11, avatar: '🚀', tag: 'Top 5%', game: 'zuzy-run' },
+        { rank: 5, name: 'MayaRunner', score: 16890, level: 10, avatar: '🌟', tag: 'Rising Star', game: 'zuzy-run' },
+        { rank: 6, name: 'Rahul_K', score: 15400, level: 9, avatar: '🎯', tag: 'Combo Pro', game: 'zuzy-run' },
+        { rank: 7, name: 'ZaraPlay', score: 14210, level: 8, avatar: '🎮', tag: 'Challenger', game: 'zuzy-run' },
+        { rank: 8, name: 'ApexBlaze', score: 13150, level: 8, avatar: '🦊', tag: 'Hot Streak', game: 'zuzy-run' }
+      ]
+    };
+
+    /* --- USER STATE PERSISTENCE --- */
+    const USER_STORAGE_KEY = 'GF_USER_DATA_V1';
+    function loadUserState() {
+      const saved = localStorage.getItem(USER_STORAGE_KEY);
+      if (saved) {
+        try { return JSON.parse(saved); } catch(e){}
+      }
+      return {
+        name: 'Hussain',
+        phone: '+91 98765 43210',
+        avatar: 'H',
+        level: 12,
+        xp: 24580,
+        nextLevelXp: 30000,
+        points: 14850,
+        gamesPlayed: 42,
+        highestScore: 21430,
+        claimedRewards: [
+          {
+            id: 'mouzy-initial',
+            title: '₹100 OFF Any Mouzy Shake',
+            brand: 'Mouzy',
+            code: 'MOUZY-100-ZUZY77',
+            claimedAt: '12 Sep 2026',
+            status: 'Active'
+          }
+        ],
+        badges: ['🔥 7-Day Streak', '🏆 Top 10%', '🎮 40+ Plays', '🥇 First Victory', '🎁 Reward Hunter'],
+        recentActivity: [
+          'Scored 21,430 in Zuzy Run (New Personal Best)',
+          'Earned +150 XP in B Laban Challenge',
+          'Claimed ₹100 OFF Mouzy reward voucher',
+          'Climbed to Rank #2 on the Weekly Leaderboard'
+        ]
+      };
+    }
+    let currentUser = loadUserState();
+
+    function saveUserState() {
+      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(currentUser));
+      updateUserHeader();
+    }
+
+    function updateUserHeader() {
+      document.getElementById('headerUserName').textContent = currentUser.name;
+      document.getElementById('headerUserLevel').textContent = 'LVL ' + currentUser.level;
+      document.getElementById('headerUserPoints').textContent = '⭐ ' + currentUser.points.toLocaleString() + ' pts';
+      document.getElementById('userAvatarIcon').textContent = currentUser.name.charAt(0).toUpperCase();
+    }
+
+    /* --- TOAST NOTIFICATIONS --- */
+    function showToast(msg, icon = 'fa-bell') {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').textContent = msg;
+      document.getElementById('toastIcon').innerHTML = '<i class="fa-solid ' + icon + ' text-[10px]"></i>';
+      toast.classList.remove('translate-y-32', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3200);
+    }
+
+    /* --- AUDIO EFFECTS (Web Audio API Synthesizer) --- */
+    const AudioEngine = {
+      ctx: null,
+      enabled: true,
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) this.ctx = new AudioContext();
+        }
+      },
+      beep(freq, duration, type = 'sine') {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + duration);
+        } catch(e){}
+      },
+      jump() { this.beep(480, 0.12, 'square'); },
+      coin() { this.beep(880, 0.15, 'triangle'); },
+      hit() { this.beep(160, 0.25, 'sawtooth'); },
+      win() { 
+        this.beep(523, 0.1); 
+        setTimeout(() => this.beep(659, 0.1), 100); 
+        setTimeout(() => this.beep(783, 0.2), 200); 
+      }
+    };
+
+    /* --- ROUTING ENGINE --- */
+    function router() {
+      const hash = window.location.hash || '#home';
+      const cleanHash = hash.replace(/^#\/?/, '');
+      const parts = cleanHash.split('/');
+      const route = parts[0] || 'home';
+      const param = parts[1] || null;
+
+      // Update Nav active states
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const linkHash = link.getAttribute('href').replace(/^#\/?/, '');
+        if (linkHash === route) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      document.querySelectorAll('.mobile-nav-item').forEach(item => {
+        if (item.getAttribute('data-route') === route) {
+          item.classList.add('text-gf-purpleLight');
+          item.classList.remove('text-white/60');
+        } else {
+          item.classList.remove('text-gf-purpleLight');
+          item.classList.add('text-white/60');
+        }
+      });
+
+      const container = document.getElementById('appContent');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      switch (route) {
+        case 'home':
+          renderHomeView(container);
+          break;
+        case 'games':
+          renderGamesCatalogView(container, param);
+          break;
+        case 'game':
+          renderGameDetailView(container, param);
+          break;
+        case 'play':
+          renderGameShellView(container, param);
+          break;
+        case 'brands':
+          renderBrandsView(container);
+          break;
+        case 'brand':
+          renderBrandDetailView(container, param);
+          break;
+        case 'rewards':
+          renderRewardsView(container);
+          break;
+        case 'leaderboard':
+          renderLeaderboardView(container);
+          break;
+        case 'profile':
+          renderProfileView(container);
+          break;
+        default:
+          renderHomeView(container);
+      }
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 1: HOME PAGE                                                     */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    let heroCarouselIndex = 0;
+    let heroCarouselTimer = null;
+
+    function renderHomeView(container) {
+      container.innerHTML = `
+        <!-- HERO CAROUSEL -->
+        <section class="relative overflow-hidden pt-4 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div id="heroCarousel" class="relative rounded-3xl overflow-hidden glass-card min-h-[440px] md:min-h-[500px] flex items-end">
+            <!-- Background Artwork (Injected dynamically) -->
+            <div id="heroBackground" class="absolute inset-0 bg-cover bg-center transition-all duration-700 transform scale-105"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gf-darkBg via-gf-darkBg/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-gf-darkBg via-gf-darkBg/80 to-transparent max-w-2xl"></div>
+
+            <!-- Slide Content -->
+            <div class="relative z-10 p-6 md:p-12 max-w-2xl space-y-4">
+              <div id="heroBadge" class="inline-flex items-center gap-2 bg-gf-purple/40 border border-gf-purpleLight/40 px-3 py-1 rounded-full text-xs font-bold text-gf-purpleLight uppercase tracking-wider backdrop-blur-md">
+                Featured Brand Game
+              </div>
+              <h1 id="heroTitle" class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-none">
+                ZUZY RUN
+              </h1>
+              <p id="heroBrandLead" class="text-sm font-semibold text-gf-cyan tracking-wide uppercase">
+                MOUZY PRESENTS
+              </p>
+              <p id="heroDescription" class="text-sm sm:text-base text-white/80 leading-relaxed max-w-lg">
+                Race through vibrant streets, dodge milk crates, beat the leaderboard and unlock exclusive ₹100 discounts from Mouzy.
+              </p>
+              
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a id="heroPlayBtn" href="#play/zuzy-run" class="flex items-center gap-2 bg-gradient-to-r from-gf-purple to-gf-purpleLight hover:from-gf-purpleLight hover:to-gf-cyan text-white text-sm font-extrabold px-6 py-3 rounded-full shadow-glow-purple transition-all transform hover:scale-105">
+                  <i class="fa-solid fa-play text-xs"></i> PLAY NOW
+                </a>
+                <a id="heroDetailBtn" href="#game/zuzy-run" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-sm font-bold px-5 py-3 rounded-full backdrop-blur-md transition-all">
+                  <i class="fa-solid fa-circle-info text-xs"></i> View Game
+                </a>
+              </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="absolute top-4 right-4 md:bottom-8 md:right-8 z-20 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-xs font-bold text-white">
+              <button onclick="prevHeroSlide()" class="hover:text-gf-cyan transition-colors px-1.5"><i class="fa-solid fa-chevron-left"></i></button>
+              <span id="heroSlideIndicator" class="font-mono text-white/80">01 / 04</span>
+              <button onclick="nextHeroSlide()" class="hover:text-gf-cyan transition-colors px-1.5"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRENDING GAMES RAIL -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="flex items-end justify-between mb-6">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-gf-cyan animate-ping"></span>
+                <span class="text-xs font-bold text-gf-cyan uppercase tracking-widest">Live On Platform</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">Trending Now</h2>
+              <p class="text-xs sm:text-sm text-white/50">Games everyone is playing right now.</p>
+            </div>
+            <a href="#games" class="text-xs sm:text-sm font-bold text-gf-purpleLight hover:text-white flex items-center gap-1 transition-colors">
+              Explore All <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${GF_DATA.games.slice(0, 3).map(game => createGameCardHtml(game)).join('')}
+          </div>
+        </section>
+
+        <!-- CATEGORIES PILLS / GRID -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="mb-4">
+            <h3 class="text-xl font-extrabold text-white tracking-tight">Browse By Category</h3>
+            <p class="text-xs text-white/50">Jump into games matching your style.</p>
+          </div>
+          <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-2">
+            <a href="#games?category=runner" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>🏃</span> Runner
+            </a>
+            <a href="#games?category=arcade" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>⚡</span> Arcade
+            </a>
+            <a href="#games?category=skill" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>🎯</span> Skill
+            </a>
+            <a href="#games?category=competitive" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>🏆</span> Competitive
+            </a>
+            <a href="#rewards" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>🎁</span> Brand Rewards
+            </a>
+            <a href="#game/onam-challenge" class="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 hover:bg-gf-purple/20 border border-white/10 hover:border-gf-purple/40 text-xs font-bold text-white transition-all whitespace-nowrap">
+              <span>🔥</span> Seasonal Events
+            </a>
+          </div>
+        </section>
+
+        <!-- BRAND SPOTLIGHT -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="flex items-end justify-between mb-6">
+            <div>
+              <span class="text-xs font-bold text-gf-gold uppercase tracking-widest">Brand Ecosystem</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">Play With Your Favourite Brands</h2>
+              <p class="text-xs sm:text-sm text-white/50">Discover the iconic consumer brands powering the games & rewards.</p>
+            </div>
+            <a href="#brands" class="text-xs sm:text-sm font-bold text-gf-gold hover:text-white flex items-center gap-1 transition-colors">
+              All Brands <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            ${GF_DATA.brands.map(brand => createBrandCardHtml(brand)).join('')}
+          </div>
+        </section>
+
+        <!-- FEATURED MAJOR CAMPAIGN CARD -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="relative rounded-3xl overflow-hidden glass-card p-6 md:p-10 border border-gf-purple/40">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('gf_seasonal_game.jpg')"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#120F2E] via-[#120F2E]/90 to-transparent"></div>
+            
+            <div class="relative z-10 max-w-xl space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-400 border border-rose-500/40 text-[10px] font-black uppercase tracking-wider">
+                  🔥 TOURNAMENT ACTIVE
+                </span>
+                <span class="text-xs font-semibold text-white/70">Ends in 6 days</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                ONAM GRAND CHAMPIONSHIP
+              </h3>
+              <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+                Sponsored by Mouzy × GameFaktory. Race on festive Kerala tracks, beat top scores, and win ₹50,000 worth of vouchers and gold coin tokens.
+              </p>
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="#play/onam-challenge" class="bg-gradient-to-r from-gf-purple to-gf-cyan text-white text-xs font-extrabold px-6 py-2.5 rounded-full shadow-glow-purple hover:opacity-95 transition-all">
+                  🎮 PLAY CHALLENGE
+                </a>
+                <a href="#rewards" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2.5 rounded-full border border-white/15 transition-all">
+                  🎁 VIEW REWARDS
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REWARDS PREVIEW -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="flex items-end justify-between mb-6">
+            <div>
+              <span class="text-xs font-bold text-rose-400 uppercase tracking-widest">Real Rewards</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">Play. Earn. Repeat.</h2>
+              <p class="text-xs sm:text-sm text-white/50">Redeem points for real dining discounts and brand freebies.</p>
+            </div>
+            <a href="#rewards" class="text-xs sm:text-sm font-bold text-rose-400 hover:text-white flex items-center gap-1 transition-colors">
+              Rewards Marketplace <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${GF_DATA.rewards.slice(0, 3).map(reward => createRewardCardHtml(reward)).join('')}
+          </div>
+        </section>
+
+        <!-- LEADERBOARD PREVIEW -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-widest">Hall of Fame</span>
+                <h3 class="text-2xl font-black text-white tracking-tight mt-0.5">Who's On Top?</h3>
+                <p class="text-xs text-white/50">Weekly leaderboard leaders across GameFaktory.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="#leaderboard" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-full border border-white/15 transition-all">
+                  Full Leaderboard →
+                </a>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              ${GF_DATA.leaderboard.slice(0, 5).map(player => `
+                <div class="flex items-center justify-between p-3 rounded-2xl ${player.isCurrentUser ? 'bg-gf-purple/20 border border-gf-purple/50 shadow-glow-purple' : 'bg-white/5 hover:bg-white/10'} transition-all">
+                  <div class="flex items-center gap-3">
+                    <span class="w-6 text-center font-extrabold text-sm ${player.rank === 1 ? 'text-amber-400 font-black' : player.rank === 2 ? 'text-slate-300 font-bold' : player.rank === 3 ? 'text-amber-600 font-bold' : 'text-white/40'}">
+                      #${player.rank}
+                    </span>
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-xs font-bold">
+                      ${player.avatar}
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white">${player.name}</span>
+                        ${player.isCurrentUser ? '<span class="text-[9px] bg-gf-cyan/30 text-gf-cyan px-1.5 py-0.2 rounded font-black">YOU</span>' : ''}
+                      </div>
+                      <span class="text-[10px] text-white/40">Level ${player.level} • ${player.tag}</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-sm font-mono font-black text-gf-cyan">${player.score.toLocaleString()}</span>
+                    <span class="block text-[9px] text-white/40">pts</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+
+      initHeroCarousel();
+    }
+
+    function initHeroCarousel() {
+      const slides = [
+        {
+          gameSlug: 'zuzy-run',
+          badge: 'MOUZY PRESENTS',
+          title: 'ZUZY RUN',
+          desc: 'Race through the dairy kingdom, dodge crates, beat the leaderboard and unlock exclusive ₹100 discounts from Mouzy.',
+          bg: 'zuzy.webp'
+        },
+        {
+          gameSlug: 'blaban-challenge',
+          badge: 'B LABAN ARCADE',
+          title: 'B LABAN CHALLENGE',
+          desc: 'Catch falling bowls of creamy rice pudding, mango chunks and Lotus biscoff biscuits to score free desserts!',
+          bg: 'blaban_game.jpg'
+        },
+        {
+          gameSlug: 'railrolls-rush',
+          badge: 'RAILROLLS SPEEDWAY',
+          title: 'RAILROLLS RUSH',
+          desc: 'A neon cyberpunk subway runner! Shift across subway tracks, vault hurdles, and claim 10% off meal combos.',
+          bg: 'railrolls_game.jpg'
+        },
+        {
+          gameSlug: 'onam-challenge',
+          badge: 'FESTIVAL SPECIAL',
+          title: 'ONAM CHALLENGE',
+          desc: 'Compete in Kerala\'s largest festival tournament. Top the state leaderboard and win grand brand prizes.',
+          bg: 'gf_seasonal_game.jpg'
+        }
+      ];
+
+      function updateSlide(idx) {
+        heroCarouselIndex = (idx + slides.length) % slides.length;
+        const slide = slides[heroCarouselIndex];
+        const bgEl = document.getElementById('heroBackground');
+        const titleEl = document.getElementById('heroTitle');
+        const badgeEl = document.getElementById('heroBadge');
+        const descEl = document.getElementById('heroDescription');
+        const playBtn = document.getElementById('heroPlayBtn');
+        const detailBtn = document.getElementById('heroDetailBtn');
+        const indicator = document.getElementById('heroSlideIndicator');
+
+        if (bgEl) bgEl.style.backgroundImage = 'url(' + slide.bg + ')';
+        if (titleEl) titleEl.textContent = slide.title;
+        if (badgeEl) badgeEl.textContent = slide.badge;
+        if (descEl) descEl.textContent = slide.desc;
+        if (playBtn) playBtn.href = '#play/' + slide.gameSlug;
+        if (detailBtn) detailBtn.href = '#game/' + slide.gameSlug;
+        if (indicator) indicator.textContent = '0' + (heroCarouselIndex + 1) + ' / 04';
+      }
+
+      window.nextHeroSlide = function() { updateSlide(heroCarouselIndex + 1); };
+      window.prevHeroSlide = function() { updateSlide(heroCarouselIndex - 1); };
+
+      updateSlide(0);
+
+      if (heroCarouselTimer) clearInterval(heroCarouselTimer);
+      heroCarouselTimer = setInterval(() => {
+        if (window.location.hash === '' || window.location.hash === '#home') {
+          nextHeroSlide();
+        }
+      }, 7000);
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 2: GAMES CATALOG PAGE (#games)                                   */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderGamesCatalogView(container, filterCategory) {
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div class="space-y-3 mb-8">
+            <span class="text-xs font-bold text-gf-cyan uppercase tracking-widest">Game Discovery Hub</span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Explore Games</h1>
+            <p class="text-sm text-white/60 max-w-xl">Pick a game. Beat the score. Unlock real brand rewards. Do it again.</p>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="glass-card rounded-2xl p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Search input -->
+            <div class="relative w-full md:w-80">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40 text-xs"></i>
+              <input id="catalogSearchInput" type="text" placeholder="Search by game, brand, genre..." 
+                     oninput="filterCatalogGames()"
+                     class="w-full bg-white/5 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-white/40 focus:border-gf-purple outline-none"/>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto">
+              <button onclick="setCatalogCategory('all')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-gf-purple text-white" data-cat="all">All</button>
+              <button onclick="setCatalogCategory('runner')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-white/70" data-cat="runner">Runner</button>
+              <button onclick="setCatalogCategory('arcade')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-white/70" data-cat="arcade">Arcade</button>
+              <button onclick="setCatalogCategory('skill')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-white/70" data-cat="skill">Skill</button>
+              <button onclick="setCatalogCategory('competitive')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-white/70" data-cat="competitive">Competitive</button>
+            </div>
+
+            <!-- Sort dropdown -->
+            <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+              <span class="text-xs text-white/40">Sort:</span>
+              <select id="catalogSortSelect" onchange="filterCatalogGames()" class="bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-white focus:border-gf-purple outline-none">
+                <option value="trending">🔥 Trending</option>
+                <option value="rating">★ Highest Rated</option>
+                <option value="plays">👥 Most Played</option>
+                <option value="new">✨ Newest</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Games Grid -->
+          <div id="catalogGamesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            ${GF_DATA.games.map(game => createGameCardHtml(game)).join('')}
+          </div>
+
+          <!-- Empty State (hidden by default) -->
+          <div id="catalogEmptyState" class="hidden text-center py-16 space-y-3">
+            <div class="w-16 h-16 mx-auto rounded-full bg-white/5 flex items-center justify-center text-2xl text-white/40">
+              <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white">No games match your search</h4>
+            <p class="text-xs text-white/50">Try searching for a different keyword or resetting your filters.</p>
+            <button onclick="resetCatalogFilters()" class="text-xs text-gf-cyan hover:underline font-bold">Reset Filters</button>
+          </div>
+        </section>
+      `;
+
+      if (filterCategory) {
+        setCatalogCategory(filterCategory);
+      }
+    }
+
+    let currentCatalogCategory = 'all';
+    window.setCatalogCategory = function(cat) {
+      currentCatalogCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = 'cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-gf-purple text-white';
+        } else {
+          btn.className = 'cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-white/70';
+        }
+      });
+      filterCatalogGames();
+    };
+
+    window.filterCatalogGames = function() {
+      const q = (document.getElementById('catalogSearchInput')?.value || '').toLowerCase().trim();
+      const sort = document.getElementById('catalogSortSelect')?.value || 'trending';
+
+      let filtered = GF_DATA.games.filter(g => {
+        const matchesCat = currentCatalogCategory === 'all' || g.category === currentCatalogCategory;
+        const matchesQuery = !q || g.title.toLowerCase().includes(q) || g.brand.toLowerCase().includes(q) || g.genre.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      if (sort === 'rating') filtered.sort((a,b) => b.rating - a.rating);
+      if (sort === 'plays') filtered.sort((a,b) => parseInt(b.players) - parseInt(a.players));
+
+      const grid = document.getElementById('catalogGamesGrid');
+      const empty = document.getElementById('catalogEmptyState');
+
+      if (filtered.length === 0) {
+        if (grid) grid.innerHTML = '';
+        if (empty) empty.classList.remove('hidden');
+      } else {
+        if (empty) empty.classList.add('hidden');
+        if (grid) grid.innerHTML = filtered.map(game => createGameCardHtml(game)).join('');
+      }
+    };
+
+    window.resetCatalogFilters = function() {
+      const input = document.getElementById('catalogSearchInput');
+      if (input) input.value = '';
+      setCatalogCategory('all');
+    };
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 3: GAME DETAIL PAGE (#game/:slug)                                */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderGameDetailView(container, slug) {
+      const game = GF_DATA.games.find(g => g.slug === slug) || GF_DATA.games[0];
+      const brand = GF_DATA.brands.find(b => b.slug === game.brandSlug) || GF_DATA.brands[0];
+      const relatedRewards = GF_DATA.rewards.filter(r => r.gameSlug === game.slug || r.brandSlug === game.brandSlug);
+
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <!-- Back Link -->
+          <a href="#games" class="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white mb-6 transition-colors">
+            <i class="fa-solid fa-arrow-left text-[10px]"></i> Back to Game Library
+          </a>
+
+          <!-- Hero Spotlight Card -->
+          <div class="relative rounded-3xl overflow-hidden glass-card min-h-[420px] p-6 sm:p-10 flex flex-col justify-end border border-white/10 mb-10">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('${game.coverImage}')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gf-darkBg via-gf-darkBg/75 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-gf-darkBg via-gf-darkBg/60 to-transparent"></div>
+
+            <div class="relative z-10 max-w-2xl space-y-4">
+              <div class="flex items-center gap-3">
+                <img src="${game.brandLogo}" alt="${game.brand}" class="w-10 h-10 rounded-xl object-contain bg-black/40 p-1 border border-white/10"/>
+                <div>
+                  <span class="text-xs font-black text-gf-cyan uppercase tracking-widest">${game.brand}</span>
+                  <div class="flex items-center gap-2 text-xs text-white/60">
+                    <span>${game.genre}</span>
+                    <span>•</span>
+                    <span>★ ${game.rating} Rating</span>
+                  </div>
+                </div>
+              </div>
+
+              <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-none">
+                ${game.title}
+              </h1>
+
+              <p class="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl">
+                ${game.description}
+              </p>
+
+              <!-- Launch Action & Metadata -->
+              <div class="flex flex-wrap items-center gap-4 pt-2">
+                <a href="#play/${game.slug}" class="flex items-center gap-2.5 bg-gradient-to-r from-gf-purple to-gf-cyan text-white text-base font-black px-8 py-3.5 rounded-full shadow-glow-purple hover:opacity-95 transition-all transform hover:scale-105">
+                  <i class="fa-solid fa-play text-sm"></i> PLAY NOW
+                </a>
+                <div class="flex items-center gap-4 text-xs font-semibold text-white/70">
+                  <span>🟢 ${game.players} active players</span>
+                  <span>🏆 Rewards Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Col (2 cols): How to play & Rewards -->
+            <div class="lg:col-span-2 space-y-8">
+              <!-- How to play -->
+              <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-4">
+                <h3 class="text-xl font-extrabold text-white">How To Play</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  ${game.howToPlay.map((step, i) => `
+                    <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/5">
+                      <span class="w-6 h-6 rounded-lg bg-gf-purple/30 text-gf-purpleLight font-black text-xs flex items-center justify-center flex-none">
+                        ${i + 1}
+                      </span>
+                      <p class="text-xs text-white/80 leading-relaxed">${step}</p>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Available Rewards from this game -->
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-xl font-extrabold text-white">Unlockable Rewards</h3>
+                    <p class="text-xs text-white/50">Score points in ${game.title} to claim these vouchers.</p>
+                  </div>
+                  <a href="#rewards" class="text-xs text-gf-cyan font-bold hover:underline">All Rewards →</a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  ${relatedRewards.map(rew => createRewardCardHtml(rew)).join('')}
+                </div>
+              </div>
+
+              <!-- About the Brand -->
+              <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-3">
+                <div class="flex items-center gap-3">
+                  <img src="${brand.logo}" alt="${brand.name}" class="w-12 h-12 rounded-2xl object-cover border border-white/10"/>
+                  <div>
+                    <h4 class="text-lg font-bold text-white">${brand.name}</h4>
+                    <span class="text-xs text-gf-gold font-semibold">${brand.tagline}</span>
+                  </div>
+                </div>
+                <p class="text-xs text-white/70 leading-relaxed">${brand.description}</p>
+                <div class="pt-2">
+                  <a href="#brand/${brand.slug}" class="inline-flex items-center gap-1.5 text-xs font-bold text-gf-purpleLight hover:text-white transition-colors">
+                    Visit ${brand.name} Branded Hub →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Col: Game Leaderboard -->
+            <div class="space-y-6">
+              <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-4">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-base font-extrabold text-white">Top Players This Week</h4>
+                  <span class="text-[10px] font-bold text-gf-cyan bg-gf-cyan/20 px-2 py-0.5 rounded-full">LIVE</span>
+                </div>
+
+                <div class="space-y-2">
+                  ${GF_DATA.leaderboard.slice(0, 6).map(player => `
+                    <div class="flex items-center justify-between p-2.5 rounded-xl ${player.isCurrentUser ? 'bg-gf-purple/20 border border-gf-purple/40' : 'bg-white/5'} text-xs">
+                      <div class="flex items-center gap-2">
+                        <span class="font-bold ${player.rank === 1 ? 'text-amber-400' : player.rank === 2 ? 'text-slate-300' : 'text-white/40'}">#${player.rank}</span>
+                        <span class="font-bold text-white">${player.name}</span>
+                        ${player.isCurrentUser ? '<span class="text-[9px] text-gf-cyan font-black">(YOU)</span>' : ''}
+                      </div>
+                      <span class="font-mono font-bold text-gf-cyan">${player.score.toLocaleString()}</span>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <a href="#leaderboard" class="block text-center text-xs font-bold text-white/60 hover:text-white py-2 border-t border-white/10 mt-2">
+                  View Full Leaderboard →
+                </a>
+              </div>
+
+              <!-- Launch CTA Card -->
+              <div class="p-6 rounded-3xl bg-gradient-to-br from-gf-purple/40 to-[#120F2E] border border-gf-purple/40 text-center space-y-3">
+                <span class="text-2xl">⚡</span>
+                <h4 class="text-base font-extrabold text-white">Ready to Play?</h4>
+                <p class="text-xs text-white/70">No download or install needed. Runs instantly inside your browser.</p>
+                <a href="#play/${game.slug}" class="block w-full bg-gf-purple hover:bg-gf-purpleLight text-white font-bold py-2.5 rounded-xl shadow-glow-purple transition-all text-xs">
+                  Launch Game Shell
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 4: GAME LAUNCH EXPERIENCE / DEDICATED GAME SHELL (#play/:slug)  */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    let gameLoopReq = null;
+
+    function renderGameShellView(container, slug) {
+      const game = GF_DATA.games.find(g => g.slug === slug) || GF_DATA.games[0];
+
+      container.innerHTML = `
+        <div class="max-w-5xl mx-auto px-2 sm:px-4 py-4 space-y-4">
+          <!-- Game Shell Header -->
+          <div class="glass-panel rounded-2xl p-3 sm:p-4 flex items-center justify-between gap-2 border border-white/10">
+            <a href="#game/${game.slug}" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white bg-white/5 px-3 py-1.5 rounded-lg transition-colors">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i> <span class="hidden sm:inline">Back to GameFaktory</span><span class="sm:hidden">Back</span>
+            </a>
+
+            <!-- Game & Brand title -->
+            <div class="text-center">
+              <span class="text-[10px] font-black uppercase text-gf-cyan tracking-widest block">${game.brand}</span>
+              <h2 class="text-sm sm:text-base font-black text-white leading-tight">${game.title}</h2>
+            </div>
+
+            <!-- Score & Controls -->
+            <div class="flex items-center gap-2">
+              <div class="bg-black/50 border border-white/10 px-3 py-1 rounded-lg text-right hidden sm:block">
+                <span class="text-[9px] text-white/40 block leading-none">SCORE</span>
+                <span id="shellHeaderScore" class="text-sm font-mono font-black text-gf-cyan leading-none">0</span>
+              </div>
+              <button onclick="toggleGamePause()" id="shellPauseBtn" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs flex items-center justify-center transition-colors" title="Pause Game">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <button onclick="toggleGameSound()" id="shellSoundBtn" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs flex items-center justify-center transition-colors" title="Toggle Sound">
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dedicated Canvas Stage -->
+          <div class="relative rounded-3xl overflow-hidden glass-card border border-gf-purple/40 shadow-2xl bg-[#090816] flex items-center justify-center">
+            <canvas id="gameCanvas" width="800" height="450" class="w-full max-w-4xl h-auto block touch-none cursor-pointer"></canvas>
+
+            <!-- Game HUD Overlays -->
+            <div id="gamePauseOverlay" class="absolute inset-0 bg-black/80 backdrop-blur-md hidden flex flex-col items-center justify-center gap-3 z-30">
+              <h3 class="text-2xl font-black text-white">GAME PAUSED</h3>
+              <p class="text-xs text-white/60">Catch your breath and jump back in!</p>
+              <button onclick="toggleGamePause()" class="bg-gf-purple hover:bg-gf-purpleLight text-white font-bold text-xs px-6 py-2.5 rounded-full shadow-glow-purple mt-2">
+                Resume Playing
+              </button>
+            </div>
+
+            <!-- Game Over Overlay -->
+            <div id="gameOverOverlay" class="absolute inset-0 bg-black/90 backdrop-blur-lg hidden flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeUp">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-2xl shadow-glow-purple mb-3">
+                🏆
+              </div>
+              <h3 id="gameOverHeading" class="text-2xl sm:text-3xl font-black text-white">NICE RUN!</h3>
+              <p class="text-xs text-white/60 mt-1 mb-4">You just earned real GameFaktory points & XP!</p>
+
+              <div class="grid grid-cols-2 gap-3 max-w-xs w-full mb-5">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-3">
+                  <span class="text-[10px] text-white/40 block">FINAL SCORE</span>
+                  <span id="gameOverScore" class="text-xl font-mono font-black text-gf-cyan">0</span>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-3">
+                  <span class="text-[10px] text-white/40 block">REWARDS EARNED</span>
+                  <span id="gameOverPoints" class="text-xl font-mono font-black text-gf-gold">+250 pts</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-center gap-3">
+                <button onclick="startMiniGame('${game.slug}')" class="bg-gradient-to-r from-gf-purple to-gf-purpleLight text-white text-xs font-black px-6 py-2.5 rounded-full shadow-glow-purple hover:scale-105 transition-all">
+                  🔄 PLAY AGAIN
+                </button>
+                <a href="#rewards" class="bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
+                  🎁 CLAIM VOUCHERS
+                </a>
+                <a href="#game/${game.slug}" class="text-xs text-white/50 hover:text-white px-3 py-2">
+                  Exit to Overview
+                </a>
+              </div>
+            </div>
+
+            <!-- Mobile Touch Controls Bar (Visible on touch devices) -->
+            <div id="touchControlsBar" class="absolute bottom-3 left-0 right-0 z-20 flex justify-between px-6 pointer-events-none md:hidden">
+              <button id="touchSlideBtn" class="pointer-events-auto w-14 h-14 rounded-full bg-white/20 active:bg-gf-purple backdrop-blur-md text-white font-bold text-xs border border-white/20 flex items-center justify-center shadow-lg">
+                SLIDE
+              </button>
+              <button id="touchJumpBtn" class="pointer-events-auto w-14 h-14 rounded-full bg-gf-purple/80 active:bg-gf-cyan backdrop-blur-md text-white font-black text-xs border border-white/30 flex items-center justify-center shadow-glow-purple">
+                JUMP
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Control Tips -->
+          <div class="glass-panel rounded-xl p-3 flex items-center justify-between text-xs text-white/60">
+            <div class="flex items-center gap-3">
+              <span><kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white text-[10px]">SPACE</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white text-[10px]">↑</kbd> to Jump</span>
+              <span><kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white text-[10px]">↓</kbd> to Slide / Duck</span>
+            </div>
+            <span class="text-gf-gold font-semibold">Play to unlock ${game.brand} vouchers</span>
+          </div>
+        </div>
+      `;
+
+      startMiniGame(game.slug);
+    }
+
+    /* --- CANVAS MINI-GAME IMPLEMENTATION --- */
+    let isGamePaused = false;
+    let isSoundOn = true;
+
+    window.toggleGamePause = function() {
+      isGamePaused = !isGamePaused;
+      const overlay = document.getElementById('gamePauseOverlay');
+      const pauseBtn = document.getElementById('shellPauseBtn');
+      if (overlay) overlay.classList.toggle('hidden', !isGamePaused);
+      if (pauseBtn) pauseBtn.innerHTML = isGamePaused ? '<i class="fa-solid fa-play"></i>' : '<i class="fa-solid fa-pause"></i>';
+    };
+
+    window.toggleGameSound = function() {
+      isSoundOn = !isSoundOn;
+      AudioEngine.enabled = isSoundOn;
+      const soundBtn = document.getElementById('shellSoundBtn');
+      if (soundBtn) soundBtn.innerHTML = isSoundOn ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark text-rose-400"></i>';
+    };
+
+    function startMiniGame(slug) {
+      if (gameLoopReq) cancelAnimationFrame(gameLoopReq);
+      isGamePaused = false;
+      document.getElementById('gameOverOverlay')?.classList.add('hidden');
+      document.getElementById('gamePauseOverlay')?.classList.add('hidden');
+
+      const canvas = document.getElementById('gameCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const W = canvas.width;
+      const H = canvas.height;
+      const groundY = H - 60;
+
+      // Player Sprite State
+      const player = {
+        x: 100,
+        y: groundY - 48,
+        w: 36,
+        h: 48,
+        vy: 0,
+        jumpForce: -13,
+        gravity: 0.65,
+        isGrounded: true,
+        isSliding: false,
+        slideTimer: 0
+      };
+
+      let score = 0;
+      let gameSpeed = 5.5;
+      let isGameOver = false;
+      let obstacles = [];
+      let items = [];
+      let particles = [];
+      let frameCount = 0;
+      let backgroundStars = Array.from({ length: 45 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * (groundY - 80),
+        size: Math.random() * 2 + 1,
+        speed: Math.random() * 0.8 + 0.2
+      }));
+
+      function jump() {
+        if (player.isGrounded && !player.isSliding) {
+          player.vy = player.jumpForce;
+          player.isGrounded = false;
+          AudioEngine.jump();
+        }
+      }
+
+      function slide() {
+        if (player.isGrounded && !player.isSliding) {
+          player.isSliding = true;
+          player.h = 24;
+          player.y = groundY - 24;
+          player.slideTimer = 35;
+          AudioEngine.beep(300, 0.08, 'sine');
+        }
+      }
+
+      // Key listeners
+      function handleKeyDown(e) {
+        if (e.code === 'Space' || e.code === 'ArrowUp') {
+          e.preventDefault();
+          jump();
+        }
+        if (e.code === 'ArrowDown') {
+          e.preventDefault();
+          slide();
+        }
+      }
+      window.addEventListener('keydown', handleKeyDown);
+
+      // Canvas click/touch for jump
+      canvas.onpointerdown = () => jump();
+      const jumpBtn = document.getElementById('touchJumpBtn');
+      const slideBtn = document.getElementById('touchSlideBtn');
+      if (jumpBtn) jumpBtn.onclick = (e) => { e.stopPropagation(); jump(); };
+      if (slideBtn) slideBtn.onclick = (e) => { e.stopPropagation(); slide(); };
+
+      function spawnObstacle() {
+        const isOverhead = Math.random() > 0.6;
+        obstacles.push({
+          x: W + 20,
+          y: isOverhead ? groundY - 60 : groundY - 36,
+          w: isOverhead ? 45 : 28,
+          h: isOverhead ? 18 : 36,
+          isOverhead: isOverhead,
+          color: isOverhead ? '#EC4899' : '#EF4444'
+        });
+      }
+
+      function spawnItem() {
+        items.push({
+          x: W + 20,
+          y: groundY - (Math.random() > 0.5 ? 40 : 85),
+          size: 14,
+          collected: false
+        });
+      }
+
+      function createExplosion(x, y, color = '#22D3EE') {
+        for (let i = 0; i < 10; i++) {
+          particles.push({
+            x, y,
+            vx: (Math.random() - 0.5) * 6,
+            vy: (Math.random() - 0.5) * 6,
+            life: 20,
+            color
+          });
+        }
+      }
+
+      function loop() {
+        if (isGameOver) return;
+        if (!isGamePaused) {
+          frameCount++;
+          score += 1;
+          if (frameCount % 600 === 0) gameSpeed += 0.4;
+
+          const scoreEl = document.getElementById('shellHeaderScore');
+          if (scoreEl) scoreEl.textContent = score.toLocaleString();
+
+          // Player Physics
+          player.y += player.vy;
+          player.vy += player.gravity;
+
+          if (player.y >= groundY - player.h) {
+            player.y = groundY - player.h;
+            player.vy = 0;
+            player.isGrounded = true;
+          }
+
+          if (player.isSliding) {
+            player.slideTimer--;
+            if (player.slideTimer <= 0) {
+              player.isSliding = false;
+              player.h = 48;
+              player.y = groundY - 48;
+            }
+          }
+
+          // Spawning
+          if (frameCount % 110 === 0) spawnObstacle();
+          if (frameCount % 75 === 0) spawnItem();
+
+          // Move stars
+          backgroundStars.forEach(s => {
+            s.x -= s.speed * (gameSpeed * 0.2);
+            if (s.x < 0) s.x = W;
+          });
+
+          // Move Obstacles
+          for (let i = obstacles.length - 1; i >= 0; i--) {
+            const obs = obstacles[i];
+            obs.x -= gameSpeed;
+
+            // Collision check
+            if (
+              player.x < obs.x + obs.w &&
+              player.x + player.w > obs.x &&
+              player.y < obs.y + obs.h &&
+              player.y + player.h > obs.y
+            ) {
+              AudioEngine.hit();
+              endGame(score);
+              return;
+            }
+
+            if (obs.x < -60) obstacles.splice(i, 1);
+          }
+
+          // Move Items
+          for (let i = items.length - 1; i >= 0; i--) {
+            const it = items[i];
+            it.x -= gameSpeed;
+
+            if (
+              !it.collected &&
+              player.x < it.x + it.size &&
+              player.x + player.w > it.x - it.size &&
+              player.y < it.y + it.size &&
+              player.y + player.h > it.y - it.size
+            ) {
+              it.collected = true;
+              score += 150;
+              AudioEngine.coin();
+              createExplosion(it.x, it.y, '#F59E0B');
+              items.splice(i, 1);
+            } else if (it.x < -20) {
+              items.splice(i, 1);
+            }
+          }
+
+          // Move Particles
+          for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life--;
+            if (p.life <= 0) particles.splice(i, 1);
+          }
+        }
+
+        // --- DRAWING ---
+        ctx.fillStyle = '#090816';
+        ctx.fillRect(0, 0, W, H);
+
+        // Draw Ambient grid / Stars
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        backgroundStars.forEach(s => {
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Ground Track
+        const trackGrad = ctx.createLinearGradient(0, groundY, 0, H);
+        trackGrad.addColorStop(0, '#1E1A3D');
+        trackGrad.addColorStop(1, '#0C0A1C');
+        ctx.fillStyle = trackGrad;
+        ctx.fillRect(0, groundY, W, H - groundY);
+
+        // Neon track line
+        ctx.strokeStyle = '#7C3AED';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, groundY);
+        ctx.lineTo(W, groundY);
+        ctx.stroke();
+
+        // Speed lines on track
+        ctx.fillStyle = 'rgba(34, 211, 238, 0.3)';
+        const lineOffset = (frameCount * gameSpeed) % 60;
+        for (let x = -lineOffset; x < W; x += 60) {
+          ctx.fillRect(x, groundY + 15, 25, 3);
+        }
+
+        // Draw Player Sprite
+        ctx.save();
+        if (player.isSliding) {
+          // Slide pose (compact runner)
+          ctx.fillStyle = '#22D3EE';
+          ctx.beginPath();
+          ctx.roundRect(player.x, player.y, player.w + 10, player.h, 8);
+          ctx.fill();
+          // Glow
+          ctx.strokeStyle = '#FFFFFF';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        } else {
+          // Upright running pose
+          ctx.fillStyle = '#7C3AED';
+          ctx.beginPath();
+          ctx.roundRect(player.x, player.y, player.w, player.h, 10);
+          ctx.fill();
+
+          // Cyber visor
+          ctx.fillStyle = '#22D3EE';
+          ctx.fillRect(player.x + player.w - 12, player.y + 10, 10, 6);
+
+          // Aura glow
+          ctx.strokeStyle = '#9F67FF';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // Draw Obstacles
+        obstacles.forEach(obs => {
+          ctx.fillStyle = obs.color;
+          ctx.beginPath();
+          ctx.roundRect(obs.x, obs.y, obs.w, obs.h, 6);
+          ctx.fill();
+          // Glow border
+          ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+
+        // Draw Items (Golden Milk Bottles / Coins)
+        items.forEach(it => {
+          ctx.save();
+          ctx.fillStyle = '#F59E0B';
+          ctx.beginPath();
+          ctx.arc(it.x, it.y, it.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#FBBF24';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          // Inner icon
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = 'bold 10px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('★', it.x, it.y);
+          ctx.restore();
+        });
+
+        // Draw Particles
+        particles.forEach(p => {
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x, p.y, 3, 3);
+        });
+
+        // HUD overlay on canvas
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 14px "DM Sans", sans-serif';
+        ctx.fillText('SCORE: ' + score, 20, 30);
+
+        gameLoopReq = requestAnimationFrame(loop);
+      }
+
+      function endGame(finalScore) {
+        isGameOver = true;
+        if (gameLoopReq) cancelAnimationFrame(gameLoopReq);
+        window.removeEventListener('keydown', handleKeyDown);
+
+        // Update player stats
+        const earnedPoints = Math.max(150, Math.floor(finalScore / 20));
+        const earnedXp = Math.max(100, Math.floor(finalScore / 30));
+        currentUser.points += earnedPoints;
+        currentUser.xp += earnedXp;
+        currentUser.gamesPlayed += 1;
+        if (finalScore > currentUser.highestScore) {
+          currentUser.highestScore = finalScore;
+          showToast('🎉 NEW HIGH SCORE: ' + finalScore.toLocaleString() + ' pts!', 'fa-trophy');
+        } else {
+          showToast('Run finished! +' + earnedPoints + ' GF Points earned.', 'fa-gift');
+        }
+        currentUser.recentActivity.unshift('Played ' + slug + ' • Scored ' + finalScore.toLocaleString());
+        if (currentUser.recentActivity.length > 8) currentUser.recentActivity.pop();
+        saveUserState();
+
+        // Show Game Over Overlay
+        const overlay = document.getElementById('gameOverOverlay');
+        const scoreEl = document.getElementById('gameOverScore');
+        const pointsEl = document.getElementById('gameOverPoints');
+        if (overlay) overlay.classList.remove('hidden');
+        if (scoreEl) scoreEl.textContent = finalScore.toLocaleString();
+        if (pointsEl) pointsEl.textContent = '+' + earnedPoints + ' pts';
+      }
+
+      gameLoopReq = requestAnimationFrame(loop);
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 5: BRANDS DIRECTORY (#brands)                                    */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderBrandsView(container) {
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-gf-gold uppercase tracking-widest">Brand Ecosystem</span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Discover Brands</h1>
+            <p class="text-sm text-white/60 max-w-xl">Play branded games. Discover consumer brands. Unlock exclusive retail vouchers.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${GF_DATA.brands.map(brand => createBrandCardHtml(brand, true)).join('')}
+          </div>
+
+          <!-- Brand Onboarding Callout -->
+          <div class="glass-card rounded-3xl p-8 border border-gf-cyan/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2">
+              <span class="text-xs font-black text-gf-cyan uppercase tracking-widest">For Consumer Brands</span>
+              <h3 class="text-2xl font-black text-white">Want your brand featured on GameFaktory?</h3>
+              <p class="text-xs sm:text-sm text-white/70 max-w-xl">Turn customers into active players with custom 3D games, instant reward issuing, and measurable campaign analytics.</p>
+            </div>
+            <a href="index.html" class="flex-none bg-gradient-to-r from-gf-cyan to-gf-purple text-white text-xs font-extrabold px-6 py-3 rounded-full shadow-glow-cyan hover:opacity-95 transition-all">
+              Launch With GameFaktory →
+            </a>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 6: BRAND DETAIL HUB (#brand/:slug)                               */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderBrandDetailView(container, slug) {
+      const brand = GF_DATA.brands.find(b => b.slug === slug) || GF_DATA.brands[0];
+      const brandGames = GF_DATA.games.filter(g => g.brandSlug === brand.slug);
+      const brandRewards = GF_DATA.rewards.filter(r => r.brandSlug === brand.slug);
+
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+          <a href="#brands" class="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white transition-colors">
+            <i class="fa-solid fa-arrow-left text-[10px]"></i> Back to All Brands
+          </a>
+
+          <!-- Brand Hero Hub -->
+          <div class="relative rounded-3xl overflow-hidden glass-card p-6 sm:p-10 border border-white/10 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-black/50 p-2 border border-white/15 flex-none flex items-center justify-center shadow-2xl">
+              <img src="${brand.logo}" alt="${brand.name}" class="w-full h-full object-contain rounded-2xl"/>
+            </div>
+
+            <div class="flex-1 text-center md:text-left space-y-2">
+              <div class="inline-flex items-center gap-1.5 bg-gf-gold/20 text-gf-gold border border-gf-gold/40 px-3 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider">
+                <i class="fa-solid fa-circle-check text-[9px]"></i> VERIFIED BRAND PARTNER
+              </div>
+              <h1 class="text-3xl sm:text-4xl font-black text-white">${brand.name}</h1>
+              <p class="text-sm font-semibold text-gf-cyan">${brand.tagline}</p>
+              <p class="text-xs sm:text-sm text-white/70 max-w-xl">${brand.description}</p>
+              
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs font-semibold text-white/60">
+                <span>📍 ${brand.outlets}</span>
+                <span>🎮 ${brand.activeGames} Games</span>
+                <span>🎁 ${brand.totalRewards} Rewards</span>
+              </div>
+            </div>
+
+            <div class="flex-none">
+              ${brandGames.length > 0 ? `
+                <a href="#play/${brandGames[0].slug}" class="bg-gradient-to-r from-gf-purple to-gf-purpleLight text-white text-xs font-extrabold px-6 py-3 rounded-full shadow-glow-purple inline-flex items-center gap-2 hover:scale-105 transition-all">
+                  <i class="fa-solid fa-play text-[10px]"></i> Play ${brand.name} Game
+                </a>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- Branded Games -->
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold text-white">Games by ${brand.name}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${brandGames.map(game => createGameCardHtml(game)).join('')}
+            </div>
+          </div>
+
+          <!-- Branded Rewards -->
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold text-white">${brand.name} Rewards & Perks</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              ${brandRewards.map(rew => createRewardCardHtml(rew)).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 7: REWARDS MARKETPLACE (#rewards)                                */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    let currentRewardsTab = 'available';
+
+    function renderRewardsView(container) {
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-rose-400 uppercase tracking-widest">Player Perks & Vouchers</span>
+              <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Your Rewards</h1>
+              <p class="text-sm text-white/60">Play branded games, climb leaderboards and claim real vouchers.</p>
+            </div>
+
+            <!-- Balance Card -->
+            <div class="glass-card rounded-2xl p-4 border border-gf-gold/40 flex items-center gap-4 shadow-glow-gold flex-none">
+              <div class="w-12 h-12 rounded-xl bg-gf-gold/20 text-gf-gold flex items-center justify-center text-xl">
+                ⭐
+              </div>
+              <div>
+                <span class="text-[10px] text-white/50 uppercase font-bold block">Available Balance</span>
+                <span id="rewardsBalanceText" class="text-2xl font-mono font-black text-gf-gold">${currentUser.points.toLocaleString()} pts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <button onclick="switchRewardsTab('available')" class="rewards-tab px-4 py-2 rounded-xl text-xs font-bold transition-all ${currentRewardsTab === 'available' ? 'bg-gf-purple text-white' : 'bg-white/5 text-white/60 hover:text-white'}">
+              Available Rewards (${GF_DATA.rewards.length})
+            </button>
+            <button onclick="switchRewardsTab('claimed')" class="rewards-tab px-4 py-2 rounded-xl text-xs font-bold transition-all ${currentRewardsTab === 'claimed' ? 'bg-gf-purple text-white' : 'bg-white/5 text-white/60 hover:text-white'}">
+              Claimed Vouchers (${currentUser.claimedRewards.length})
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div id="rewardsTabContent">
+            <!-- Rendered by switchRewardsTab -->
+          </div>
+
+          <!-- How Rewards Work -->
+          <div class="glass-card rounded-3xl p-8 border border-white/10 space-y-6 mt-12">
+            <h3 class="text-xl font-black text-white">How GameFaktory Rewards Work</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-2">
+                <span class="text-2xl">🎮</span>
+                <h4 class="text-sm font-bold text-white">1. Play Branded Games</h4>
+                <p class="text-xs text-white/60 leading-relaxed">Launch games right in your browser. Jump, dodge, catch and rack up high scores.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-2">
+                <span class="text-2xl">🪙</span>
+                <h4 class="text-sm font-bold text-white">2. Earn GF Points</h4>
+                <p class="text-xs text-white/60 leading-relaxed">Every gameplay awards session points and XP. Reaching score milestones adds bonuses.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-2">
+                <span class="text-2xl">🎟️</span>
+                <h4 class="text-sm font-bold text-white">3. Redeem Real Discounts</h4>
+                <p class="text-xs text-white/60 leading-relaxed">Exchange points for instant voucher codes and QR coupons valid at partner outlets.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      switchRewardsTab(currentRewardsTab);
+    }
+
+    window.switchRewardsTab = function(tab) {
+      currentRewardsTab = tab;
+      const content = document.getElementById('rewardsTabContent');
+      if (!content) return;
+
+      if (tab === 'available') {
+        content.innerHTML = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${GF_DATA.rewards.map(rew => createRewardCardHtml(rew)).join('')}
+          </div>
+        `;
+      } else {
+        if (currentUser.claimedRewards.length === 0) {
+          content.innerHTML = `
+            <div class="text-center py-16 glass-card rounded-3xl border border-white/10 space-y-3">
+              <span class="text-3xl">🎁</span>
+              <h4 class="text-base font-bold text-white">No claimed vouchers yet</h4>
+              <p class="text-xs text-white/50">Play games to earn points and claim your first discount coupon.</p>
+              <a href="#games" class="inline-block text-xs font-bold text-gf-cyan hover:underline">Explore Games →</a>
+            </div>
+          `;
+        } else {
+          content.innerHTML = `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${currentUser.claimedRewards.map(voucher => `
+                <div class="glass-card rounded-2xl p-5 border border-gf-purple/40 space-y-3 shadow-glow-purple">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-black text-gf-cyan uppercase tracking-wider">${voucher.brand}</span>
+                    <span class="text-[10px] bg-gf-green/20 text-gf-green font-bold px-2 py-0.5 rounded-full">ACTIVE</span>
+                  </div>
+                  <h4 class="text-base font-bold text-white">${voucher.title}</h4>
+                  
+                  <div class="p-3 rounded-xl bg-black/60 border border-dashed border-white/20 flex items-center justify-between">
+                    <span class="font-mono font-black text-sm text-gf-gold tracking-widest">${voucher.code}</span>
+                    <button onclick="navigator.clipboard.writeText('${voucher.code}'); showToast('Coupon code copied!', 'fa-copy')" class="text-xs text-white/50 hover:text-white px-2 py-1">
+                      <i class="fa-solid fa-copy"></i>
+                    </button>
+                  </div>
+
+                  <span class="block text-[10px] text-white/40">Claimed: ${voucher.claimedAt}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+      }
+    };
+
+    /* --- CLAIM REWARD ACTION --- */
+    window.claimReward = function(rewardId) {
+      const reward = GF_DATA.rewards.find(r => r.id === rewardId);
+      if (!reward) return;
+
+      const modal = document.getElementById('rewardModal');
+      const content = document.getElementById('rewardModalContent');
+
+      if (currentUser.points < reward.pointsCost) {
+        content.innerHTML = `
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <h3 class="text-lg font-extrabold text-white">Insufficient GF Points</h3>
+          <p class="text-xs text-white/60 mt-1 mb-4">
+            You need <span class="font-bold text-gf-gold">${(reward.pointsCost - currentUser.points).toLocaleString()} more points</span> to claim this reward.
+          </p>
+          <div class="flex items-center justify-center gap-3">
+            <a href="#play/${reward.gameSlug}" onclick="closeRewardModal()" class="bg-gf-purple hover:bg-gf-purpleLight text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-glow-purple">
+              🎮 Play & Earn Points
+            </a>
+            <button onclick="closeRewardModal()" class="text-xs text-white/50 hover:text-white px-3 py-2">
+              Cancel
+            </button>
+          </div>
+        `;
+      } else {
+        const uniqueCode = reward.codePrefix + '-' + Math.floor(1000 + Math.random() * 9000);
+        content.innerHTML = `
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gf-green/20 text-gf-green flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <h3 class="text-lg font-extrabold text-white">Confirm Voucher Claim</h3>
+          <p class="text-xs text-white/60 mt-1 mb-4">
+            Deduct <span class="font-bold text-gf-gold">${reward.pointsCost.toLocaleString()} points</span> from your balance to claim <span class="text-white font-bold">${reward.title}</span>?
+          </p>
+          <div class="p-3 bg-white/5 rounded-xl text-left text-xs text-white/70 space-y-1 mb-5">
+            <div>• Brand: <span class="text-white font-bold">${reward.brand}</span></div>
+            <div>• Validity: ${reward.validity}</div>
+          </div>
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="confirmRewardRedemption('${reward.id}', '${uniqueCode}')" class="bg-gradient-to-r from-gf-green to-emerald-500 text-white text-xs font-black px-6 py-2.5 rounded-full shadow-lg hover:scale-105 transition-all">
+              Claim Now
+            </button>
+            <button onclick="closeRewardModal()" class="text-xs text-white/50 hover:text-white px-3 py-2">
+              Cancel
+            </button>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    };
+
+    window.confirmRewardRedemption = function(rewardId, uniqueCode) {
+      const reward = GF_DATA.rewards.find(r => r.id === rewardId);
+      if (!reward) return;
+
+      currentUser.points -= reward.pointsCost;
+      currentUser.claimedRewards.unshift({
+        id: 'rew-' + Date.now(),
+        title: reward.title,
+        brand: reward.brand,
+        code: uniqueCode,
+        claimedAt: 'Just Now',
+        status: 'Active'
+      });
+      currentUser.recentActivity.unshift('Claimed ' + reward.title + ' voucher');
+      saveUserState();
+
+      const content = document.getElementById('rewardModalContent');
+      content.innerHTML = `
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-2xl shadow-glow-purple mb-3">
+          🎉
+        </div>
+        <h3 class="text-xl font-black text-white">VOUCHER CLAIMED!</h3>
+        <p class="text-xs text-white/60 mt-1 mb-4">Present this code or show in-store at ${reward.brand} outlets.</p>
+
+        <!-- QR Code Simulation -->
+        <div class="w-28 h-28 mx-auto bg-white p-2 rounded-2xl shadow-lg flex items-center justify-center mb-3">
+          <div class="w-full h-full border-2 border-black border-dashed flex flex-col items-center justify-center text-black">
+            <i class="fa-solid fa-qrcode text-4xl"></i>
+            <span class="text-[8px] font-mono font-bold mt-1">SCAN VOUCHER</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-black/60 border border-dashed border-gf-cyan/50 rounded-xl flex items-center justify-between mb-4">
+          <span class="font-mono font-black text-base text-gf-cyan tracking-widest">${uniqueCode}</span>
+          <button onclick="navigator.clipboard.writeText('${uniqueCode}'); showToast('Code copied to clipboard!', 'fa-check')" class="text-xs text-white/70 hover:text-white px-2 py-1 bg-white/10 rounded">
+            <i class="fa-solid fa-copy mr-1"></i> Copy
+          </button>
+        </div>
+
+        <button onclick="closeRewardModal(); if (window.location.hash === '#rewards') renderRewardsView(document.getElementById('appContent'));" class="w-full bg-gf-purple hover:bg-gf-purpleLight text-white text-xs font-bold py-2.5 rounded-xl shadow-glow-purple">
+          Done (Saved to Wallet)
+        </button>
+      `;
+
+      AudioEngine.win();
+      showToast('🎉 Voucher Claimed! Check Your Rewards.', 'fa-gift');
+    };
+
+    window.closeRewardModal = function() {
+      document.getElementById('rewardModal')?.classList.add('hidden');
+    };
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 8: LEADERBOARDS (#leaderboard)                                   */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderLeaderboardView(container) {
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-widest">Global Rankings</span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Who's On Top?</h1>
+            <p class="text-sm text-white/60">Compete with thousands of players, claim bragging rights and unlock prize tokens.</p>
+          </div>
+
+          <!-- Podium for Top 3 -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto items-end pt-6 pb-2">
+            <!-- 2nd Place -->
+            <div class="glass-card rounded-3xl p-4 sm:p-6 text-center border border-slate-400/30 flex flex-col items-center">
+              <span class="text-lg sm:text-xl">🥈</span>
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-400 to-slate-200 text-black font-black text-base sm:text-xl flex items-center justify-center shadow-lg my-2">
+                H
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-white truncate max-w-full">Hussain (You)</h4>
+              <span class="text-xs sm:text-sm font-mono font-black text-gf-cyan mt-1">21,430</span>
+              <span class="text-[9px] text-white/40">pts</span>
+            </div>
+
+            <!-- 1st Place -->
+            <div class="glass-card rounded-3xl p-5 sm:p-8 text-center border border-amber-400/50 flex flex-col items-center shadow-glow-gold relative -translate-y-4">
+              <div class="absolute -top-4 px-3 py-0.5 rounded-full bg-amber-400 text-black font-black text-[10px] tracking-wider uppercase shadow-md">
+                CHAMPION
+              </div>
+              <span class="text-2xl sm:text-3xl">👑</span>
+              <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-amber-400 to-amber-200 text-black font-black text-lg sm:text-2xl flex items-center justify-center shadow-2xl my-2">
+                P1
+              </div>
+              <h4 class="text-sm sm:text-base font-black text-white truncate max-w-full">PlayerOne</h4>
+              <span class="text-sm sm:text-base font-mono font-black text-amber-300 mt-1">24,820</span>
+              <span class="text-[9px] text-white/40">pts</span>
+            </div>
+
+            <!-- 3rd Place -->
+            <div class="glass-card rounded-3xl p-4 sm:p-6 text-center border border-amber-700/30 flex flex-col items-center">
+              <span class="text-lg sm:text-xl">🥉</span>
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-amber-700 to-amber-500 text-white font-black text-base sm:text-xl flex items-center justify-center shadow-lg my-2">
+                GX
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-white truncate max-w-full">GamerX</h4>
+              <span class="text-xs sm:text-sm font-mono font-black text-gf-cyan mt-1">19,920</span>
+              <span class="text-[9px] text-white/40">pts</span>
+            </div>
+          </div>
+
+          <!-- Ranks Table -->
+          <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <h3 class="text-lg font-extrabold text-white">Full Rankings</h3>
+              
+              <div class="flex items-center gap-2">
+                <select class="bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-white outline-none">
+                  <option>All Games</option>
+                  <option>Zuzy Run (Mouzy)</option>
+                  <option>B Laban Challenge</option>
+                  <option>RailRolls Rush</option>
+                </select>
+                <select class="bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-white outline-none">
+                  <option>This Week</option>
+                  <option>All Time</option>
+                  <option>Today</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              ${GF_DATA.leaderboard.map(player => `
+                <div class="flex items-center justify-between p-3.5 rounded-2xl ${player.isCurrentUser ? 'bg-gf-purple/25 border border-gf-purple/60 shadow-glow-purple' : 'bg-white/5 hover:bg-white/10'} transition-all">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 text-center font-extrabold text-sm ${player.rank === 1 ? 'text-amber-400 font-black' : player.rank === 2 ? 'text-slate-300' : player.rank === 3 ? 'text-amber-600' : 'text-white/40'}">
+                      #${player.rank}
+                    </span>
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-sm font-bold">
+                      ${player.avatar}
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs sm:text-sm font-bold text-white">${player.name}</span>
+                        ${player.isCurrentUser ? '<span class="text-[9px] bg-gf-cyan text-black px-1.5 py-0.2 rounded font-black">YOU</span>' : ''}
+                      </div>
+                      <span class="text-[10px] text-white/40">Level ${player.level} • ${player.tag}</span>
+                    </div>
+                  </div>
+
+                  <div class="text-right">
+                    <span class="text-sm sm:text-base font-mono font-black text-gf-cyan">${player.score.toLocaleString()}</span>
+                    <span class="block text-[9px] text-white/40">pts</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* VIEW 9: PLAYER PROFILE (#profile)                                     */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function renderProfileView(container) {
+      const xpPercent = Math.min(100, Math.round((currentUser.xp / currentUser.nextLevelXp) * 100));
+
+      container.innerHTML = `
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+          <!-- Profile Card -->
+          <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 relative overflow-hidden">
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+              <div class="relative">
+                <div class="w-24 h-24 rounded-3xl bg-gradient-to-tr from-gf-purple to-gf-cyan flex items-center justify-center text-4xl font-black text-white shadow-glow-purple">
+                  ${currentUser.name.charAt(0).toUpperCase()}
+                </div>
+                <span class="absolute -bottom-1 -right-1 px-2.5 py-0.5 rounded-full bg-gf-green text-black font-black text-[10px]">
+                  LVL ${currentUser.level}
+                </span>
+              </div>
+
+              <div class="text-center sm:text-left space-y-1">
+                <div class="flex items-center justify-center sm:justify-start gap-2">
+                  <h1 class="text-2xl sm:text-3xl font-black text-white">${currentUser.name}</h1>
+                  <button onclick="openAuthModal()" class="text-white/40 hover:text-white text-xs"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+                <p class="text-xs text-gf-cyan font-semibold">Gold Competitor • Member since 2026</p>
+                <p class="text-xs text-white/50">📱 ${currentUser.phone}</p>
+              </div>
+            </div>
+
+            <!-- Edit Button -->
+            <button onclick="openAuthModal()" class="bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all">
+              Switch Player / Sign In
+            </button>
+          </div>
+
+          <!-- XP Progression Bar -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-white">Level ${currentUser.level} Progression</span>
+              <span class="font-mono text-gf-purpleLight">${currentUser.xp.toLocaleString()} / ${currentUser.nextLevelXp.toLocaleString()} XP (${xpPercent}%)</span>
+            </div>
+            <div class="w-full h-3 bg-black/40 rounded-full overflow-hidden border border-white/10">
+              <div class="h-full bg-gradient-to-r from-gf-purple via-gf-purpleLight to-gf-cyan transition-all duration-500 rounded-full" style="width: ${xpPercent}%"></div>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="glass-card rounded-2xl p-4 border border-white/10 text-center">
+              <span class="text-xs text-white/40 font-bold block">GF POINTS</span>
+              <span class="text-xl sm:text-2xl font-mono font-black text-gf-gold mt-1 block">⭐ ${currentUser.points.toLocaleString()}</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-white/10 text-center">
+              <span class="text-xs text-white/40 font-bold block">GAMES PLAYED</span>
+              <span class="text-xl sm:text-2xl font-mono font-black text-gf-cyan mt-1 block">🎮 ${currentUser.gamesPlayed}</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-white/10 text-center">
+              <span class="text-xs text-white/40 font-bold block">HIGH SCORE</span>
+              <span class="text-xl sm:text-2xl font-mono font-black text-emerald-400 mt-1 block">🏆 ${currentUser.highestScore.toLocaleString()}</span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 border border-white/10 text-center">
+              <span class="text-xs text-white/40 font-bold block">REWARDS CLAIMED</span>
+              <span class="text-xl sm:text-2xl font-mono font-black text-rose-400 mt-1 block">🎁 ${currentUser.claimedRewards.length}</span>
+            </div>
+          </div>
+
+          <!-- Badges & Recent Activity -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Badges -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-4">
+              <h3 class="text-lg font-bold text-white">Unlocked Badges</h3>
+              <div class="flex flex-wrap gap-2.5">
+                ${currentUser.badges.map(b => `
+                  <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white/90 flex items-center gap-1.5 shadow-sm">
+                    ${b}
+                  </span>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-4">
+              <h3 class="text-lg font-bold text-white">Recent Activity</h3>
+              <div class="space-y-2.5 text-xs text-white/70">
+                ${currentUser.recentActivity.map(act => `
+                  <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5">
+                    <span class="w-2 h-2 rounded-full bg-gf-cyan"></span>
+                    <span>${act}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* COMPONENT GENERATORS (Cards & Widgets)                                */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    function createGameCardHtml(game) {
+      return `
+        <div class="glass-card rounded-3xl overflow-hidden border border-white/10 group flex flex-col transition-all duration-300 hover:-translate-y-1.5">
+          <!-- Artwork container with play hover overlay -->
+          <div class="relative aspect-video overflow-hidden bg-black/50">
+            <img src="${game.coverImage}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#131127] via-transparent to-transparent"></div>
+            
+            <!-- Badge -->
+            <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/15 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              ${game.badgeText || game.genre}
+            </span>
+
+            <!-- Hover Play Overlay -->
+            <a href="#play/${game.slug}" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-black text-sm z-10">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gf-purple to-gf-cyan flex items-center justify-center shadow-glow-purple transform scale-90 group-hover:scale-100 transition-transform">
+                <i class="fa-solid fa-play text-xs text-white ml-0.5"></i>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-xs text-white/50 mb-1">
+                <span class="font-bold text-gf-cyan uppercase tracking-wider">${game.brand}</span>
+                <span>🟢 ${game.players} players</span>
+              </div>
+              <a href="#game/${game.slug}" class="text-base font-extrabold text-white group-hover:text-gf-purpleLight transition-colors block leading-tight">
+                ${game.title}
+              </a>
+              <p class="text-xs text-white/60 line-clamp-2 mt-1">${game.tagline}</p>
+            </div>
+
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between">
+              <a href="#game/${game.slug}" class="text-xs font-bold text-white/50 hover:text-white transition-colors">
+                Details →
+              </a>
+              <a href="#play/${game.slug}" class="bg-gf-purple/20 hover:bg-gf-purple text-gf-purpleLight hover:text-white border border-gf-purple/40 text-xs font-bold px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-play text-[9px]"></i> Play
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function createBrandCardHtml(brand, fullDetails = false) {
+      return `
+        <div class="glass-card rounded-3xl p-5 border border-white/10 group flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-black/40 p-1 border border-white/10 flex items-center justify-center">
+                <img src="${brand.logo}" alt="${brand.name}" class="w-full h-full object-contain rounded-xl"/>
+              </div>
+              <span class="text-[10px] text-gf-gold bg-gf-gold/15 px-2 py-0.5 rounded-full font-bold">
+                ${brand.category}
+              </span>
+            </div>
+
+            <div>
+              <h4 class="text-base font-black text-white group-hover:text-gf-gold transition-colors">${brand.name}</h4>
+              <p class="text-xs text-white/50">${brand.tagline}</p>
+            </div>
+
+            ${fullDetails ? `
+              <p class="text-xs text-white/60 line-clamp-2">${brand.description}</p>
+            ` : ''}
+          </div>
+
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-white/60">
+            <span>${brand.activeGames} Games</span>
+            <a href="#brand/${brand.slug}" class="font-bold text-gf-gold hover:underline">
+              Explore →
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function createRewardCardHtml(reward) {
+      return `
+        <div class="glass-card rounded-3xl p-5 border border-white/10 flex flex-col justify-between space-y-4 hover:border-rose-500/40 transition-all">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-gf-cyan uppercase tracking-wider">${reward.brand}</span>
+              <span class="text-[10px] bg-rose-500/20 text-rose-400 font-bold px-2 py-0.5 rounded-full">${reward.badge || 'PROMO'}</span>
+            </div>
+            <h4 class="text-base font-black text-white leading-tight">${reward.title}</h4>
+            <span class="text-xs text-white/50 block">${reward.validity}</span>
+          </div>
+
+          <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-white/40 uppercase block">Cost</span>
+              <span class="text-sm font-mono font-black text-gf-gold">⭐ ${reward.pointsCost.toLocaleString()} pts</span>
+            </div>
+
+            <button onclick="claimReward('${reward.id}')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:opacity-90 text-white text-xs font-bold px-4 py-2 rounded-full shadow-md transition-all">
+              Claim Voucher
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════════ */
+    /* SEARCH COMMAND PALETTE MODAL LOGIC                                    */
+    /* ═════════════════════════════════════════════════════════════════════ */
+    let currentSearchPaletteCategory = 'all';
+
+    window.openSearchPalette = function() {
+      const modal = document.getElementById('searchPaletteModal');
+      const input = document.getElementById('searchPaletteInput');
+      if (modal) modal.classList.remove('hidden');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      renderSearchPaletteResults('');
+    };
+
+    window.closeSearchPalette = function() {
+      document.getElementById('searchPaletteModal')?.classList.add('hidden');
+    };
+
+    window.filterSearchPalette = function(cat) {
+      currentSearchPaletteCategory = cat;
+      const input = document.getElementById('searchPaletteInput');
+      renderSearchPaletteResults(input ? input.value : '');
+    };
+
+    function renderSearchPaletteResults(q) {
+      const container = document.getElementById('searchResultsContainer');
+      if (!container) return;
+
+      const query = (q || '').toLowerCase().trim();
+      let results = [];
+
+      // Add Games
+      if (currentSearchPaletteCategory === 'all' || currentSearchPaletteCategory === 'games') {
+        GF_DATA.games.forEach(g => {
+          if (!query || g.title.toLowerCase().includes(query) || g.brand.toLowerCase().includes(query)) {
+            results.push({
+              type: 'Game',
+              icon: 'fa-gamepad',
+              title: g.title,
+              subtitle: g.brand + ' • ' + g.genre,
+              href: '#game/' + g.slug
+            });
+          }
+        });
+      }
+
+      // Add Brands
+      if (currentSearchPaletteCategory === 'all' || currentSearchPaletteCategory === 'brands') {
+        GF_DATA.brands.forEach(b => {
+          if (!query || b.name.toLowerCase().includes(query)) {
+            results.push({
+              type: 'Brand',
+              icon: 'fa-award',
+              title: b.name,
+              subtitle: b.category,
+              href: '#brand/' + b.slug
+            });
+          }
+        });
+      }
+
+      // Add Rewards
+      if (currentSearchPaletteCategory === 'all' || currentSearchPaletteCategory === 'rewards') {
+        GF_DATA.rewards.forEach(r => {
+          if (!query || r.title.toLowerCase().includes(query) || r.brand.toLowerCase().includes(query)) {
+            results.push({
+              type: 'Reward',
+              icon: 'fa-gift',
+              title: r.title,
+              subtitle: r.brand + ' • ' + r.pointsCost + ' pts',
+              href: '#rewards'
+            });
+          }
+        });
+      }
+
+      if (results.length === 0) {
+        container.innerHTML = '<div class="p-6 text-center text-xs text-white/40">No matching games, brands or rewards found.</div>';
+      } else {
+        container.innerHTML = results.map(item => `
+          <a href="${item.href}" onclick="closeSearchPalette()" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 transition-colors group text-left">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-gf-purpleLight">
+                <i class="fa-solid ${item.icon} text-xs"></i>
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-white group-hover:text-gf-cyan transition-colors">${item.title}</h5>
+                <span class="text-[10px] text-white/40">${item.subtitle}</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-white/30 uppercase group-hover:text-white">${item.type} →</span>
+          </a>
+        `).join('');
+      }
+    }
+
+    document.getElementById('searchPaletteInput')?.addEventListener('input', (e) => {
+      renderSearchPaletteResults(e.target.value);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        openSearchPalette();
+      }
+      if (e.key === 'Escape') {
+        closeSearchPalette();
+        closeRewardModal();
+        closeAuthModal();
+      }
+    });
+
+    /* --- AUTH / PROFILE MODAL --- */
+    window.openAuthModal = function() {
+      const modal = document.getElementById('authModal');
+      const nameInput = document.getElementById('modalInputGamerTag');
+      const phoneInput = document.getElementById('modalInputPhone');
+      if (modal) modal.classList.remove('hidden');
+      if (nameInput) nameInput.value = currentUser.name;
+      if (phoneInput) phoneInput.value = currentUser.phone;
+    };
+
+    window.closeAuthModal = function() {
+      document.getElementById('authModal')?.classList.add('hidden');
+    };
+
+    window.handleSaveProfile = function(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('modalInputGamerTag');
+      const phoneInput = document.getElementById('modalInputPhone');
+      if (nameInput && nameInput.value.trim()) {
+        currentUser.name = nameInput.value.trim();
+        currentUser.phone = phoneInput ? phoneInput.value.trim() : currentUser.phone;
+        saveUserState();
+        closeAuthModal();
+        showToast('Profile updated, ' + currentUser.name + '!', 'fa-user');
+        if (window.location.hash === '#profile') renderProfileView(document.getElementById('appContent'));
+      }
+    };
+
+    /* --- APP INITIALIZATION --- */
+    window.addEventListener('DOMContentLoaded', () => {
+      updateUserHeader();
+      router();
+    });
+    window.addEventListener('hashchange', router);
+  </script>
+</body>
+</html>
